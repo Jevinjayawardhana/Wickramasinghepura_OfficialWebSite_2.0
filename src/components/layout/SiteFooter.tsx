@@ -17,7 +17,7 @@ import clubLogo from "@/assets/site/club-logo.png";
 const SiteFooter = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground mt-24">
-      <div className="container-editorial py-16 grid gap-12 md:grid-cols-12">
+      <div className="container-editorial py-16 grid gap-10 md:gap-12 md:grid-cols-12">
         
         {/* BRANDING & SOCIALS */}
         <div className="md:col-span-4">
@@ -32,7 +32,7 @@ const SiteFooter = () => {
             The Leo Club of Wickramasinghepura is a youth-led community service organization under the Lions Club of Wickramasinghepura, Leo District 306 D6.
           </p>
           
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3">
             {[
               { href: "https://www.facebook.com/share/1BAisQpgpY/", icon: Facebook, label: "Facebook", hover: "hover:bg-[#1877F2]" },
               { href: "https://www.instagram.com/wickipura_leos?igsh=MTJzOXAzaHlpZ3hteQ==", icon: Instagram, label: "Instagram", hover: "hover:bg-[#E4405F]" },
@@ -55,9 +55,12 @@ const SiteFooter = () => {
           </div>
         </div>
 
+        {/* LINK COLUMNS - 3 cols on sm, stacked below branding */}
+        <div className="md:col-span-8 grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-0 md:contents">
+
         {/* EXPLORE LINKS */}
         <div className="md:col-span-2 md:ml-auto">
-          <h4 className="font-serif text-base mb-6 text-accent">Explore</h4>
+          <h4 className="font-serif text-base mb-5 md:mb-6 text-accent">Explore</h4>
           <ul className="space-y-3 text-[13px] font-medium text-secondary-foreground/70">
             <li><Link to="/about" className="hover:text-primary transition-colors">Our Story</Link></li>
             <li><Link to="/projects" className="hover:text-primary transition-colors">Projects</Link></li>
@@ -70,7 +73,7 @@ const SiteFooter = () => {
 
         {/* JOIN & SUPPORT */}
         <div className="md:col-span-3 md:ml-auto">
-          <h4 className="font-serif text-base mb-6 text-accent">Get Involved</h4>
+          <h4 className="font-serif text-base mb-5 md:mb-6 text-accent">Get Involved</h4>
           <ul className="space-y-4">
             <li>
               <Link to="/join" className="group flex items-center gap-3 text-[13px] font-bold uppercase tracking-widest text-secondary-foreground/80 hover:text-primary transition-colors">
@@ -91,8 +94,8 @@ const SiteFooter = () => {
         </div>
 
         {/* CONTACT INFO */}
-        <div className="md:col-span-3 md:ml-auto">
-          <h4 className="font-serif text-base mb-6 text-accent">Contact</h4>
+        <div className="col-span-2 sm:col-span-1 md:col-span-3 md:ml-auto">
+          <h4 className="font-serif text-base mb-5 md:mb-6 text-accent">Contact</h4>
           <ul className="space-y-4 text-sm text-secondary-foreground/75">
             <li className="flex gap-3">
               <Mail className="size-4 mt-1 text-primary shrink-0" /> 
@@ -107,13 +110,15 @@ const SiteFooter = () => {
             </li>
           </ul>
         </div>
+
+        </div>{/* end link columns wrapper */}
       </div>
 
       {/* SUB-FOOTER */}
       <div className="border-t border-secondary-foreground/10 bg-black/10">
-        <div className="container-editorial py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-medium uppercase tracking-widest text-secondary-foreground/40">
+        <div className="container-editorial py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] md:text-xs font-medium uppercase tracking-wider sm:tracking-widest text-secondary-foreground/40">
           <p>© {new Date().getFullYear()} Leo Club of Wickramasinghepura. All rights reserved.</p>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <span>Leadership · Experience · Opportunity</span>
             <span className="hidden md:inline-block h-1 w-1 bg-primary rounded-full" />
             <span className="text-primary">We Serve</span>

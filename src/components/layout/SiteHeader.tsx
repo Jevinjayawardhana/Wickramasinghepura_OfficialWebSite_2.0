@@ -28,9 +28,9 @@ const SiteHeader = () => {
             alt="Wickipura Leos club logo"
             className="size-10 md:size-11 object-contain shrink-0 drop-shadow-[0_0_12px_hsl(var(--primary)/0.25)] group-hover:scale-105 transition-transform"
           />
-          <div className="leading-tight">
+          <div className="leading-tight min-w-0">
             <div className="font-serif font-semibold text-base md:text-lg text-foreground">Wickipura Leos</div>
-            <div className="text-[10px] md:text-xs uppercase tracking-[0.18em] text-muted-foreground">Leo Club of Wickramasinghepura</div>
+            <div className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.1em] sm:tracking-[0.18em] text-muted-foreground truncate">Leo Club of Wickramasinghepura</div>
           </div>
         </Link>
 

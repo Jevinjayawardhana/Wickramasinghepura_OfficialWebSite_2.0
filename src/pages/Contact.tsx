@@ -70,7 +70,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="container-editorial py-16 md:py-20 grid grid-cols-12 gap-8 md:gap-10">
+      <section className="container-editorial py-16 md:py-20 grid grid-cols-12 gap-6 md:gap-10">
         {/* Info */}
         <div className="col-span-12 lg:col-span-5 space-y-6 md:space-y-8">
   <div>
@@ -125,7 +125,7 @@ const Contact = () => {
   ))}
 </div>
         {/* Form */}
-        <form onSubmit={handleSubmit} className="col-span-12 lg:col-span-7 bg-card border border-foreground/10 p-6 sm:p-8 md:p-10 space-y-6">
+        <form onSubmit={handleSubmit} className="col-span-12 lg:col-span-7 bg-card border border-foreground/10 p-5 sm:p-8 md:p-10 space-y-6">
           <div className="grid md:grid-cols-2 gap-6">
             <label className="block">
               <span className="text-xs font-semibold uppercase tracking-widest text-foreground/60">Name *</span>
@@ -175,7 +175,7 @@ const Contact = () => {
             <button
               type="submit" 
               disabled={sending}
-              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-semibold hover:bg-secondary transition-colors disabled:opacity-60"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 sm:px-6 sm:px-7 py-3.5 sm:py-4 text-sm sm:text-base font-semibold hover:bg-secondary transition-colors disabled:opacity-60"
             >
               {sending ? "Opening Mail..." : "Send message"} <Send className="size-4" />
             </button>

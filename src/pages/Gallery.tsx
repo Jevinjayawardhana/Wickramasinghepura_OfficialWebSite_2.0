@@ -49,7 +49,7 @@ const Gallery = () => {
       <section className="bg-secondary text-secondary-foreground">
         <div className="container-editorial py-16 md:py-24">
           <span className="eyebrow !text-accent before:!bg-accent">Visual Archive</span>
-          <h1 className="font-serif text-4xl md:text-7xl mt-4 leading-none text-balance">
+          <h1 className="font-serif text-3xl sm:text-4xl md:text-7xl mt-4 leading-none text-balance">
             Moments that <span className="text-accent">made</span> us.
           </h1>
           <p className="mt-6 text-secondary-foreground/60 max-w-xl">

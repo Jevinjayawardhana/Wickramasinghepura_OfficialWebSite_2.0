@@ -37,7 +37,7 @@ const AccordionItem = ({ question, answer, isOpen, onClick }: any) => (
       onClick={onClick}
       className="w-full py-6 flex items-center justify-between text-left group hover:text-primary transition-colors"
     >
-      <span className="font-serif text-xl md:text-2xl">{question}</span>
+      <span className="font-serif text-lg md:text-2xl">{question}</span>
       <div className={cn(
         "size-8 rounded-full border border-foreground/10 grid place-items-center transition-transform duration-300",
         isOpen ? "rotate-180 bg-primary border-primary text-primary-foreground" : ""
@@ -65,7 +65,7 @@ const FAQ = () => {
         <div className="container-editorial">
           <Reveal>
             <span className="eyebrow !text-accent before:!bg-accent">Common Questions</span>
-            <h1 className="font-serif text-5xl md:text-7xl mt-4">General <span className="italic text-primary">Inquiry</span></h1>
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl mt-4">General <span className="italic text-primary">Inquiry</span></h1>
           </Reveal>
         </div>
       </section>

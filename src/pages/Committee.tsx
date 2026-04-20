@@ -46,7 +46,7 @@ const MemberCard = ({ m }: { m: Member }) => (
       <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-secondary to-transparent h-1/3 pointer-events-none" />
     </div>
     <div className="mt-4">
-      <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">{m.role}</div>
+      <div className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.2em] text-primary">{m.role}</div>
       <h4 className="font-serif text-base sm:text-lg mt-1 group-hover:text-primary transition-colors">{m.name}</h4>
     </div>
   </div>

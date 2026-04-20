@@ -12,23 +12,23 @@ const MonthlyDetail = () => {
   return (
     <SiteLayout>
       {/* HEADER */}
-      <section className="bg-secondary text-secondary-foreground py-20 border-b border-foreground/10">
+      <section className="bg-secondary text-secondary-foreground py-16 md:py-20 border-b border-foreground/10">
         <div className="container-editorial">
           <Link to="/projects" className="flex items-center gap-2 text-accent mb-6 uppercase tracking-widest text-xs font-bold">
             <ArrowLeft size={14} /> BACK
           </Link>
-          <h1 className="font-serif text-6xl md:text-8xl uppercase">{data.title}</h1>
-          <p className="text-2xl font-serif text-accent mt-2">{monthSlug?.split('-')[1]}</p>
+          <h1 className="font-serif text-4xl sm:text-6xl md:text-8xl uppercase break-words">{data.title}</h1>
+          <p className="text-xl md:text-2xl font-serif text-accent mt-2">{monthSlug?.split('-')[1]}</p>
         </div>
       </section>
 
-      <article className="container-editorial py-16">
+      <article className="container-editorial py-12 md:py-16">
         {data.subProjects.map((project: any, index: number) => (
-          <div key={index} className="mb-24 last:mb-0">
+          <div key={index} className="mb-16 md:mb-24 last:mb-0">
             {/* PROJECT TEXT */}
-            <div className="max-w-4xl mb-10">
-              <h3 className="font-serif text-3xl md:text-4xl text-primary mb-4">{project.projectName}</h3>
-              <p className="text-lg text-foreground/80 leading-relaxed mb-6">{project.description}</p>
+            <div className="max-w-4xl mb-8 md:mb-10">
+              <h3 className="font-serif text-2xl md:text-4xl text-primary mb-4">{project.projectName}</h3>
+              <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-6">{project.description}</p>
               
               <div className="flex flex-wrap gap-4 text-xs font-bold uppercase tracking-widest text-foreground/40">
                 <span className="flex items-center gap-2"><Calendar size={14} className="text-primary" /> {project.date}</span>

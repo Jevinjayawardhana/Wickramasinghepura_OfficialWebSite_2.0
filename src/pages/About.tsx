@@ -66,13 +66,13 @@ const About = () => {
     <SiteLayout>
       {/* HERO SECTION */}
       <section className="bg-secondary text-secondary-foreground overflow-hidden">
-        <div className="container-editorial py-20 md:py-32 grid grid-cols-12 gap-8 items-center">
+        <div className="container-editorial py-20 md:py-32 grid grid-cols-12 gap-y-8 md:gap-8 items-center">
           <div className="col-span-12 lg:col-span-8">
             <span className="eyebrow !text-accent before:!bg-accent">Est. 1992/93</span>
-            <h1 className="font-serif text-5xl md:text-8xl mt-6 leading-none tracking-tighter">
+            <h1 className="font-serif text-3xl sm:text-6xl md:text-8xl mt-6 leading-none tracking-tighter">
               Legacy of <span className="text-accent italic">Excellence.</span>
             </h1>
-            <p className="mt-8 text-lg md:text-xl text-secondary-foreground/80 max-w-2xl leading-relaxed">
+            <p className="mt-8 text-lg md:text-xl text-secondary-foreground/80 max-w-2xl leading-relaxed ">
               Founded under the District Presidency of Prabha Dharmarathne, the Leo Club of Wickramasinghepura has spent 33 years cultivating leaders and serving the community of District 306 D6.
             </p>
           </div>
@@ -81,19 +81,19 @@ const About = () => {
 
       {/* THE BATON - CURRENT LEADERSHIP */}
       <section className="bg-accent text-secondary py-12">
-        <div className="container-editorial flex flex-col md:flex-row justify-between items-center gap-6">
-          <h2 className="font-serif text-2xl md:text-3xl">"Leading with Vision, Serving with Heart"</h2>
-          <div className="text-right">
+        <div className="container-editorial flex flex-col md:flex-row justify-between items-start md:items-center gap-4 md:gap-6">
+          <h2 className="font-serif text-xl sm:text-2xl md:text-3xl">"Leading with Vision, Serving with Heart"</h2>
+          <div className="text-left md:text-right">
             <p className="uppercase tracking-widest text-xs font-bold opacity-80">Current President</p>
-            <p className="font-serif text-xl">Leo Dulanja Sathushka (2025/26)</p>
+            <p className="font-serif text-lg md:text-xl">Leo Dulanja Sathushka (2025/26)</p>
           </div>
         </div>
       </section>
 
       {/* HISTORY & LOGO */}
-      <section className="container-editorial py-20 grid grid-cols-12 gap-12 items-center">
+      <section className="container-editorial py-20 grid grid-cols-12 gap-6 md:gap-12 items-center">
         <div className="col-span-12 md:col-span-5">
-           <div className="aspect-square bg-white border border-foreground/10 p-12 flex items-center justify-center relative shadow-editorial">
+           <div className="aspect-square bg-white border border-foreground/10 p-6 sm:p-8 md:p-12 flex items-center justify-center relative shadow-editorial">
               <img src={clubLogo} alt="Club Logo" className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-500" />
               <div className="absolute -bottom-6 -right-6 bg-primary text-primary-foreground p-6 hidden md:block">
                 <p className="font-serif text-4xl">33</p>
@@ -103,7 +103,7 @@ const About = () => {
         </div>
         <div className="col-span-12 md:col-span-7 space-y-6">
           <span className="eyebrow">The Origin</span>
-          <h2 className="font-serif text-4xl md:text-5xl leading-tight">Built by youth, sustained by talent.</h2>
+          <h2 className="font-serif text-3xl md:text-5xl leading-tight">Built by youth, sustained by talent.</h2>
           <p className="text-foreground/70 leading-relaxed text-lg">
             Leo Ayanthi Wickramasinghe took the first challenge of leading this club. Following her footsteps, youngsters from 1993 to 2025 have lifted societal standards while evolving the club into a powerhouse.
           </p>
@@ -114,8 +114,8 @@ const About = () => {
       <section className="bg-secondary/5 py-20 border-y border-foreground/5">
         <div className="container-editorial grid md:grid-cols-3 gap-12">
           {pillars.map((p) => (
-            <div key={p.title} className="group p-8 bg-background border border-foreground/5 hover:border-accent transition-colors">
-              <p.icon className="size-10 text-accent mb-6" />
+            <div key={p.title} className="group p-5 sm:p-8 bg-background border border-foreground/5 hover:border-accent transition-colors">
+              <p.icon className="size-8 sm:size-10 text-accent mb-4 sm:mb-6" />
               <h3 className="font-serif text-2xl mb-4">{p.title}</h3>
               <p className="text-foreground/60 leading-relaxed text-sm">{p.text}</p>
             </div>
@@ -127,28 +127,28 @@ const About = () => {
       <section className="container-editorial py-24">
         <div className="text-center mb-16">
           <span className="eyebrow mx-auto">Hall of Fame</span>
-          <h2 className="font-serif text-4xl md:text-6xl mt-4">Individual Recognitions</h2>
+          <h2 className="font-serif text-3xl md:text-6xl mt-4">Individual Recognitions</h2>
         </div>
         <div className="grid md:grid-cols-2 gap-8">
           {hallOfFame.map((h, i) => (
-            <div key={i} className="flex gap-6 p-8 bg-secondary text-secondary-foreground items-center">
-              <h.icon className="size-12 text-accent" />
+            <div key={i} className="flex gap-4 md:gap-6 p-5 md:p-8 bg-secondary text-secondary-foreground items-center">
+              <h.icon className="size-8 md:size-12 shrink-0 text-accent" />
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] font-bold text-accent mb-1">{h.role}</p>
-                <h4 className="font-serif text-xl md:text-2xl">{h.name}</h4>
+                <h4 className="font-serif text-base md:text-xl lg:text-2xl">{h.name}</h4>
               </div>
             </div>
           ))}
         </div>
         
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-8">
             {[
                 { label: "President Winner", name: "Leo Praveen Kavinda" },
                 { label: "Dedicated Leo", name: "Leo Saduni Gamage" },
                 { label: "Treasurer Runner-Up", name: "Leo Dilshan Wijesurendra" },
                 { label: "New Leo Runner-Up", name: "Leo Chathil Maneth" }
             ].map((r, i) => (
-                <div key={i} className="p-6 border border-foreground/10 text-center">
+                <div key={i} className="p-4 sm:p-6 border border-foreground/10 text-center">
                     <p className="text-[10px] uppercase tracking-tighter font-bold text-foreground/40">{r.label}</p>
                     <p className="font-serif mt-2">{r.name}</p>
                 </div>
@@ -159,7 +159,7 @@ const About = () => {
       {/* AWARDS SECTION */}
       <section className="bg-secondary text-secondary-foreground py-24">
         <div className="container-editorial">
-          <div className="grid grid-cols-12 gap-12">
+          <div className="grid grid-cols-12 gap-6 md:gap-12">
             <div className="col-span-12 lg:col-span-4">
                 <span className="eyebrow !text-accent before:!bg-accent">Accolades</span>
                 <h2 className="font-serif text-4xl mt-4">33 Years of Recognition.</h2>
@@ -169,7 +169,7 @@ const About = () => {
             </div>
             <div className="col-span-12 lg:col-span-8 space-y-12">
                 {majorAwards.map((m, i) => (
-                    <div key={i} className="border-l-2 border-accent pl-8 py-2">
+                    <div key={i} className="border-l-2 border-accent pl-5 md:pl-8 py-2">
                         <h4 className="font-serif text-2xl text-accent mb-6">{m.category}</h4>
                         <div className="grid gap-6">
                             {m.awards.map((aw, j) => (
@@ -189,14 +189,14 @@ const About = () => {
       {/* PAST PRESIDENTS - THE LINEAGE (UPDATED) */}
       <section className="container-editorial py-24 overflow-hidden">
         <div className="flex items-center gap-4 mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl whitespace-nowrap">The Lineage</h2>
+            <h2 className="font-serif text-3xl md:text-5xl shrink-0">The Lineage</h2>
             <div className="h-px w-full bg-foreground/10" />
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-y-8 sm:gap-y-12 gap-x-4 sm:gap-x-8">
             {pastPresidents.map((president, i) => (
                 <div key={i} className="relative">
                     <span className="text-[10px] font-bold text-accent">{president.year}</span>
-                    <h5 className="font-serif text-lg leading-tight mt-1">{president.name}</h5>
+                    <h5 className="font-serif text-base sm:text-lg leading-tight mt-1">{president.name}</h5>
                 </div>
             ))}
         </div>
@@ -206,16 +206,16 @@ const About = () => {
       <section className="bg-primary text-primary-foreground py-20">
         <div className="container-editorial grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 className="font-serif text-4xl mb-6">Producing District Leaders</h2>
+                <h2 className="font-serif text-3xl md:text-4xl mb-6">Producing District Leaders</h2>
                 <p className="opacity-80 text-sm md:text-base leading-relaxed">
                     Our club hasn't just served locally; we have produced Multiple District and District Presidents who have shaped the entire Leo movement in Sri Lanka.
                 </p>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                 {["Leo Ayanthi Wickramasinghe", "Lion Manjula Wijesundara", "Leo Pubudu Upendra", "Lion Shaminda Livera", "Lion Kasun Udayanga", "Leo Lion Samitha Perera"].map((dp, i) => (
-                    <div key={i} className="bg-white/10 p-4 flex items-center gap-3">
-                        <UserCheck className="size-4 text-accent" />
-                        <span className="text-xs font-bold uppercase tracking-widest">{dp}</span>
+                    <div key={i} className="bg-white/10 p-3 md:p-4 flex items-center gap-2 sm:gap-3">
+                        <UserCheck className="size-4 shrink-0 text-accent" />
+                        <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider sm:tracking-widest">{dp}</span>
                     </div>
                 ))}
             </div>

@@ -20,11 +20,11 @@ const Join = () => {
 
         <div className="container-editorial relative z-20 py-20">
           <Reveal>
-            <Link to="/" className="group inline-flex items-center gap-2 text-accent mb-8 uppercase tracking-[0.3em] text-[10px] font-black">
+            <Link to="/" className="group inline-flex items-center gap-2 text-accent mb-8 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-[10px] font-black">
               <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Back to Home
             </Link>
             <span className="eyebrow !text-accent before:!bg-accent">Begin Your Journey</span>
-            <h1 className="font-serif text-5xl md:text-8xl mt-6 leading-[0.9] tracking-tighter">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-8xl mt-6 leading-[0.9] tracking-tighter">
               Lead. Serve. <br /><span className="text-primary italic">Belong.</span>
             </h1>
             <p className="mt-8 text-lg md:text-xl text-secondary-foreground/70 max-w-2xl leading-relaxed">
@@ -37,7 +37,7 @@ const Join = () => {
 
       {/* --- WAYS TO JOIN --- */}
       <section className="container-editorial py-20 md:py-32">
-        <div className="grid grid-cols-12 gap-10">
+        <div className="grid grid-cols-12 gap-6 md:gap-10">
           <div className="col-span-12 lg:col-span-4">
             <Reveal animation="fade-in-left">
               <h2 className="font-serif text-3xl md:text-5xl leading-tight">Ready to <br /><span className="text-primary">step up?</span></h2>
@@ -49,7 +49,7 @@ const Join = () => {
 
           <div className="col-span-12 lg:col-span-8 grid md:grid-cols-2 gap-6">
             <Reveal animation="scale-in" delay={100}>
-              <div className="bg-card border border-foreground/10 p-10 h-full hover:border-primary transition-all group">
+              <div className="bg-card border border-foreground/10 p-7 md:p-10 h-full hover:border-primary transition-all group">
                 <UserPlus className="text-primary size-10 mb-6" />
                 <h3 className="font-serif text-2xl mb-4">Membership</h3>
                 <p className="text-sm text-foreground/70 leading-relaxed">
@@ -59,7 +59,7 @@ const Join = () => {
             </Reveal>
 
             <Reveal animation="scale-in" delay={200}>
-              <div className="bg-card border border-foreground/10 p-10 h-full hover:border-accent transition-all group">
+              <div className="bg-card border border-foreground/10 p-7 md:p-10 h-full hover:border-accent transition-all group">
                 <Zap className="text-accent size-10 mb-6" />
                 <h3 className="font-serif text-2xl mb-4">Volunteer</h3>
                 <p className="text-sm text-foreground/70 leading-relaxed">
@@ -118,7 +118,7 @@ const Join = () => {
             <div className="mt-20 text-center">
               <Link 
                 to="/contact" 
-                className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-10 py-5 font-bold uppercase tracking-widest text-xs hover:bg-accent hover:text-secondary transition-all"
+                className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-7 sm:px-10 py-5 font-bold uppercase tracking-wider sm:tracking-widest text-xs hover:bg-accent hover:text-secondary transition-all"
               >
                 Inquire via Contact Form <ArrowRight size={16} />
               </Link>

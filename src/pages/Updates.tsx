@@ -224,7 +224,7 @@ const Updates = () => {
         <Reveal>
           <span className="eyebrow">Latest Newsletter</span>
         </Reveal>
-        <div className="mt-6 grid grid-cols-12 gap-8 md:gap-10 items-stretch">
+        <div className="mt-6 grid grid-cols-12 gap-y-8 md:gap-10 items-stretch">
           <Reveal animation="fade-in-left" className="col-span-12 md:col-span-5">
             <div className="relative group overflow-hidden bg-secondary aspect-[3/4] md:aspect-auto md:h-full shadow-2xl border border-foreground/5">
               <PlaceholderImage label={featured.title} variant="secondary" aspect="absolute inset-0" src={featured.cover} />
@@ -238,7 +238,7 @@ const Updates = () => {
             <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold flex items-center gap-2">
               <Calendar className="size-3" /> {featured.date}
             </div>
-            <h2 className="font-serif text-3xl md:text-5xl mt-4 leading-tight">
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl mt-4 leading-tight">
               {featured.title} — <span className="text-primary">{featured.edition}.</span>
             </h2>
             <p className="mt-5 text-foreground/75 leading-relaxed max-w-xl">
@@ -249,10 +249,10 @@ const Updates = () => {
               <div className="flex items-center gap-2"><Download className="size-4 text-accent" /> {featured.size}</div>
             </div>
             <div className="mt-7 flex flex-wrap gap-3">
-              <a href={featured.href} download className="group inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
+              <a href={featured.href} download className="group inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-5 sm:px-6 py-3 sm:py-3.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Download className="size-4" /> Download PDF
               </a>
-              <a href={featured.onlineHref || "#"} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold border border-foreground/20 hover:bg-foreground/5 transition-colors">
+              <a href={featured.onlineHref || "#"} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 text-sm font-semibold border border-foreground/20 hover:bg-foreground/5 transition-colors">
                 Read Online <ArrowUpRight className="size-4" />
               </a>
             </div>
@@ -293,7 +293,7 @@ const Updates = () => {
                   key={f.id}
                   onClick={() => setFilter(f.id)}
                   className={cn(
-                    "inline-flex items-center gap-2 px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] transition-colors border",
+                    "inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.15em] transition-colors border",
                     active
                       ? "bg-secondary text-secondary-foreground border-secondary"
                       : "bg-transparent text-foreground/65 border-foreground/15 hover:border-foreground/40"
@@ -328,7 +328,7 @@ const Updates = () => {
                       </div>
                     </div>
                     
-                    <div className="p-6 flex-1 flex flex-col">
+                    <div className="p-4 sm:p-6 flex-1 flex flex-col">
                       <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold flex items-center gap-2">
                         <Calendar className="size-3" /> {u.date}
                       </div>

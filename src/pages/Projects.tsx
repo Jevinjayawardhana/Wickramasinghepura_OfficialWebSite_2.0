@@ -71,7 +71,7 @@ const Projects = () => {
           <img src={heroCover} alt="Leo Service" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-background" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-            <span className="font-serif text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-secondary-foreground border-l-4 border-primary pl-5 md:pl-7 uppercase tracking-tighter">
+            <span className="font-serif text-2xl sm:text-3xl md:text-6xl lg:text-7xl text-secondary-foreground border-l-4 border-primary pl-4 sm:pl-5 md:pl-7 uppercase tracking-tighter">
               Club Projects
             </span>
             <p className="mt-4 text-secondary-foreground/70 max-w-lg text-sm md:text-base">
@@ -86,7 +86,7 @@ const Projects = () => {
 
       {/* FILTER & SEARCH BAR */}
       <section className="container-editorial">
-        <div className="bg-card border border-foreground/10 p-5 md:p-6 grid md:grid-cols-2 gap-4 -mt-8 relative z-10 shadow-editorial">
+        <div className="bg-card border border-foreground/10 p-4 sm:p-5 md:p-6 grid md:grid-cols-2 gap-4 -mt-8 relative z-10 shadow-editorial">
           <div className="relative">
             <Folder className="size-4 absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40" />
             <select
@@ -117,7 +117,7 @@ const Projects = () => {
               <Link
                 key={p.slug}
                 to={`/projects/${p.slug}`}
-                className="group bg-card border border-foreground/5 hover:border-primary/50 transition-all flex flex-col hover:shadow-2xl hover:-translate-y-2 duration-500"
+                className="group bg-card border border-foreground/5 hover:border-primary/50 transition-all flex flex-col hover:shadow-2xl hover:-translate-y-2 duration-500 overflow-hidden"
               >
                 <div className="relative overflow-hidden aspect-[5/4]">
                   <img 
@@ -137,7 +137,7 @@ const Projects = () => {
                   </span>
                 </div>
                 
-                <div className="p-8 flex flex-col flex-1">
+                <div className="p-5 sm:p-8 flex flex-col flex-1">
                   <h3 className="font-serif text-2xl leading-tight group-hover:text-primary transition-colors">
                     {p.title}
                   </h3>
