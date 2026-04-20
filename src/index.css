@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Piazzolla:opsz,wght@8..30,400;8..30,500;8..30,600;8..30,700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Wickipura Leos design system — sourced from original site palette
+   Navy #01102f, Leo Red #e8293b, Gold #f6b220, Cream #faf8ed
+   All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Surfaces */
+    --background: 46 56% 95%;             /* cream #faf8ed */
+    --foreground: 222 96% 9%;             /* navy ink #01102f */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 96% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 96% 9%;
+
+    /* Brand primary = Leo Red */
+    --primary: 354 81% 54%;               /* #e8293b */
+    --primary-foreground: 46 56% 95%;
+    --primary-glow: 354 90% 64%;
+
+    /* Secondary = Navy */
+    --secondary: 222 96% 9%;              /* #01102f */
+    --secondary-foreground: 46 56% 95%;
+
+    /* Accent = Gold */
+    --accent: 41 92% 55%;                 /* #f6b220 */
+    --accent-foreground: 222 96% 9%;
+
+    --muted: 44 30% 90%;
+    --muted-foreground: 222 25% 28%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 46 56% 95%;
+
+    --border: 222 30% 86%;
+    --input: 222 30% 86%;
+    --ring: 354 81% 54%;
+
+    --radius: 0.25rem;
+
+    /* Brand gradients & shadows */
+    --gradient-hero: linear-gradient(135deg, hsl(222 96% 9%) 0%, hsl(222 70% 18%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(354 81% 54%) 0%, hsl(41 92% 55%) 100%);
+    --shadow-editorial: 8px 8px 0 hsl(222 96% 9% / 0.08);
+    --shadow-card: 0 10px 30px -10px hsl(222 96% 9% / 0.15);
+    --shadow-glow: 0 0 60px hsl(354 81% 54% / 0.25);
+
+    --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Sidebar (unused but kept for shadcn compat) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 96% 9%;
+    --sidebar-primary: 354 81% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 44 30% 90%;
+    --sidebar-accent-foreground: 222 96% 9%;
+    --sidebar-border: 222 30% 86%;
+    --sidebar-ring: 354 81% 54%;
+  }
+
+  .dark {
+    /* Deep navy surfaces with warm cream foreground */
+    --background: 222 70% 5%;             /* near-black navy */
+    --foreground: 46 50% 94%;             /* cream */
+
+    --card: 222 60% 9%;                   /* elevated navy panel */
+    --card-foreground: 46 50% 94%;
+
+    --popover: 222 60% 9%;
+    --popover-foreground: 46 50% 94%;
+
+    /* Primary stays Leo Red but slightly brighter for dark bg */
+    --primary: 354 86% 60%;
+    --primary-foreground: 46 50% 96%;
+    --primary-glow: 354 92% 68%;
+
+    /* Secondary becomes a lighter navy panel so secondary sections are still visible against the near-black background */
+    --secondary: 222 55% 13%;
+    --secondary-foreground: 46 50% 94%;
+
+    /* Accent gold — slightly warmer for contrast on dark */
+    --accent: 41 95% 58%;
+    --accent-foreground: 222 96% 9%;
+
+    --muted: 222 40% 14%;
+    --muted-foreground: 46 15% 70%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 46 50% 96%;
+
+    --border: 222 40% 18%;
+    --input: 222 40% 18%;
+    --ring: 354 86% 60%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(222 70% 5%) 0%, hsl(222 55% 13%) 100%);
+    --shadow-editorial: 8px 8px 0 hsl(0 0% 0% / 0.35);
+    --shadow-card: 0 10px 30px -10px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 222 60% 9%;
+    --sidebar-foreground: 46 50% 94%;
+    --sidebar-primary: 354 86% 60%;
+    --sidebar-primary-foreground: 46 50% 96%;
+    --sidebar-accent: 222 40% 14%;
+    --sidebar-accent-foreground: 46 50% 94%;
+    --sidebar-border: 222 40% 18%;
+    --sidebar-ring: 354 86% 60%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Work Sans', system-ui, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Piazzolla', Georgia, serif;
+    @apply tracking-tight;
+  }
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer utilities {
+  .font-serif { font-family: 'Piazzolla', Georgia, serif; }
+  .font-sans  { font-family: 'Work Sans', system-ui, sans-serif; }
+
+  .container-editorial {
+    @apply max-w-[1320px] mx-auto px-6 md:px-10;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply block w-8 h-px bg-primary;
+  }
+  .shadow-editorial { box-shadow: var(--shadow-editorial); }
+  .gradient-hero { background: var(--gradient-hero); }
+  .gradient-accent { background: var(--gradient-accent); }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fade-up 0.7s ease-out both; }
+}
+
