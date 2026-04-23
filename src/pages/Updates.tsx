@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, BookOpen, Calendar, Download, FileText, Newspaper, Search } from "lucide-react";
+import { ArrowUpRight, BookOpen, Calendar, Download, FileText, Newspaper, Search, Eye } from "lucide-react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Reveal from "@/components/Reveal";
 import PlaceholderImage from "@/components/PlaceholderImage";
@@ -9,31 +9,28 @@ import clubLogo from "@/assets/site/club-logo.png";
 // ASSET IMPORTS - NEWSLETTERS
 import imgJan from "@/assets/NewsLetters/LEO Newsletter/out_now_jan.jpg";
 import pdfJan from "@/assets/NewsLetters/LEO Newsletter/Newsletter_January.pdf";
-
 import imgFeb from "@/assets/NewsLetters/LEO Newsletter/out_now_Feb.jpg";
 import pdfFeb from "@/assets/NewsLetters/LEO Newsletter/Newsletter_February.pdf";
-
 import imgMar from "@/assets/NewsLetters/LEO Newsletter/out_now_March.jpg";
 import pdfMar from "@/assets/NewsLetters/LEO Newsletter/Newsletter_March.pdf";
-
 import imgAug from "@/assets/NewsLetters/LEO Newsletter/Newsletter_August_1.jpg";
 import pdfAug from "@/assets/NewsLetters/LEO Newsletter/Newsletter_August.pdf";
-
 import imgSep from "@/assets/NewsLetters/LEO Newsletter/out_now_sep.jpg";
 import pdfSep from "@/assets/NewsLetters/LEO Newsletter/Newsletter_september.pdf";
-
 import imgOct from "@/assets/NewsLetters/LEO Newsletter/out_now_oct.png";
 import pdfOct from "@/assets/NewsLetters/LEO Newsletter/Newsletter_october.pdf";
-
 import imgNov from "@/assets/NewsLetters/LEO Newsletter/out_now_Nov.jpg";
 import pdfNov from "@/assets/NewsLetters/LEO Newsletter/Newsletter_November.pdf";
-
 import imgDec from "@/assets/NewsLetters/LEO Newsletter/out_now_DEC.jpg";
 import pdfDec from "@/assets/NewsLetters/LEO Newsletter/Newsletter_December.pdf";
 
-// ASSET IMPORTS - CLUB DIRECTORY
+// ASSET IMPORTS - CLUB DIRECTORIES
 import imgDirectory2425 from "@/assets/ClubDirectorys/Club_Directory_2024-25.png";
 import pdfDirectory2425 from "@/assets/ClubDirectorys/Club_Directory_2024-25.pdf";
+
+// NEW 2025/26 DIRECTORY ASSETS
+import imgDirectory2526 from "@/assets/ClubDirectorys/Club Directory 2025-26.png";
+import pdfDirectory2526 from "@/assets/ClubDirectorys/Leo Club of Wickramasinghepura CLUB DIRETORY 202526.pdf";
 
 type UpdateItem = {
   id: string;
@@ -41,41 +38,23 @@ type UpdateItem = {
   title: string;
   edition: string;
   date: string;
-  pages: number;
-  size: string;
   summary: string;
   cover?: string;
-  href: string;       // PDF Download Path
-  onlineHref?: string; // AnyFlip/Online Link
+  href: string;       
+  onlineHref?: string; 
 };
 
-// ARRAY ORGANIZED ASCENDING (JAN -> DEC)
 const updates: UpdateItem[] = [
   {
-    id: "newsletter-jan-2025",
-    type: "newsletter",
-    title: "The Roar — January 2025",
-    edition: "Issue 07",
-    date: "January 2025",
-    pages: 22,
-    size: "4.0 MB",
-    summary: "Starting the new year with fresh goals and a review of our winter service success.",
-    cover: imgJan,
-    href: pdfJan,
-    onlineHref: "#", 
-  },
-  {
-    id: "newsletter-feb-2025",
-    type: "newsletter",
-    title: "The Roar — February 2025",
-    edition: "Issue 08",
-    date: "February 2025",
-    pages: 20,
-    size: "3.8 MB",
-    summary: "Reflecting on our community love projects and the annual fellowship gathering.",
-    cover: imgFeb,
-    href: pdfFeb,
-    onlineHref: "#",
+    id: "directory-2025-26",
+    type: "directory",
+    title: "Annual Club Directory 2025 / 26",
+    edition: "Volume 33",
+    date: "Leoistic Year 2025 / 26",
+    summary: "The official Leoistic Year 2025/26 Directory. Containing board details, project archives, and the complete member database.",
+    cover: imgDirectory2526,
+    href: pdfDirectory2526,
+    onlineHref: "https://heyzine.com/flip-book/85ffb27bd0.html",
   },
   {
     id: "newsletter-mar-2025",
@@ -83,60 +62,30 @@ const updates: UpdateItem[] = [
     title: "The Roar — March 2025",
     edition: "Issue 09",
     date: "March 2025",
-    pages: 24,
-    size: "4.2 MB",
     summary: "Highlights from the District Convention and a spotlight on three Leos making waves this quarter.",
     cover: imgMar,
     href: pdfMar,
-    onlineHref: "https://anyflip.com/fcbte/dbah/", // Added AnyFlip link here
+    onlineHref: "https://anyflip.com/fcbte/dbah/",
   },
   {
-    id: "newsletter-aug-2024",
+    id: "newsletter-feb-2025",
     type: "newsletter",
-    title: "The Roar — August 2024",
-    edition: "Issue 02",
-    date: "August 2024",
-    pages: 16,
-    size: "2.9 MB",
-    summary: "Setting the foundation for the new year with early-bird community projects.",
-    cover: imgAug,
-    href: pdfAug,
+    title: "The Roar — February 2025",
+    edition: "Issue 08",
+    date: "February 2025",
+    summary: "Reflecting on our community love projects and the annual fellowship gathering.",
+    cover: imgFeb,
+    href: pdfFeb,
   },
   {
-    id: "newsletter-sep-2024",
+    id: "newsletter-jan-2025",
     type: "newsletter",
-    title: "The Roar — September 2024",
-    edition: "Issue 03",
-    date: "September 2024",
-    pages: 18,
-    size: "3.1 MB",
-    summary: "Installation ceremony coverage, new board introductions, and our quarterly project pipeline.",
-    cover: imgSep,
-    href: pdfSep,
-  },
-  {
-    id: "newsletter-oct-2024",
-    type: "newsletter",
-    title: "The Roar — October 2024",
-    edition: "Issue 04",
-    date: "October 2024",
-    pages: 18,
-    size: "3.2 MB",
-    summary: "Focusing on environmental sustainability and our local green initiatives.",
-    cover: imgOct,
-    href: pdfOct,
-  },
-  {
-    id: "newsletter-nov-2024",
-    type: "newsletter",
-    title: "The Roar — November 2024",
-    edition: "Issue 05",
-    date: "November 2024",
-    pages: 18,
-    size: "3.4 MB",
-    summary: "Deep dive into our membership growth and the recent community workshops.",
-    cover: imgNov,
-    href: pdfNov,
+    title: "The Roar — January 2025",
+    edition: "Issue 07",
+    date: "January 2025",
+    summary: "Starting the new year with fresh goals and a review of our winter service success.",
+    cover: imgJan,
+    href: pdfJan,
   },
   {
     id: "newsletter-dec-2024",
@@ -144,11 +93,49 @@ const updates: UpdateItem[] = [
     title: "The Roar — December 2024",
     edition: "Issue 06",
     date: "December 2024",
-    pages: 20,
-    size: "3.6 MB",
-    summary: "Year-end review, festive service projects, and a look ahead to the second half of the Leoistic Year.",
+    summary: "Year-end review, festive service projects, and outgoing leadership reflections.",
     cover: imgDec,
     href: pdfDec,
+  },
+  {
+    id: "newsletter-nov-2024",
+    type: "newsletter",
+    title: "The Roar — November 2024",
+    edition: "Issue 05",
+    date: "November 2024",
+    summary: "Deep dive into our membership growth and recent community workshops.",
+    cover: imgNov,
+    href: pdfNov,
+  },
+  {
+    id: "newsletter-oct-2024",
+    type: "newsletter",
+    title: "The Roar — October 2024",
+    edition: "Issue 04",
+    date: "October 2024",
+    summary: "Focusing on environmental sustainability and our local green initiatives.",
+    cover: imgOct,
+    href: pdfOct,
+  },
+  {
+    id: "newsletter-sep-2024",
+    type: "newsletter",
+    title: "The Roar — September 2024",
+    edition: "Issue 03",
+    date: "September 2024",
+    summary: "Installation ceremony coverage, new board introductions, and project pipelines.",
+    cover: imgSep,
+    href: pdfSep,
+  },
+  {
+    id: "newsletter-aug-2024",
+    type: "newsletter",
+    title: "The Roar — August 2024",
+    edition: "Issue 02",
+    date: "August 2024",
+    summary: "Setting the foundation for the new year with early-bird community projects.",
+    cover: imgAug,
+    href: pdfAug,
   },
   {
     id: "directory-2024-25",
@@ -156,12 +143,9 @@ const updates: UpdateItem[] = [
     title: "Annual Club Directory 2024 / 25",
     edition: "Volume 32",
     date: "Leoistic Year 2024 / 25",
-    pages: 86,
-    size: "12.8 MB",
-    summary: "The official Leoistic Year 2024/25 Directory. Containing board details, project archives, and the complete member database.",
+    summary: "Complete record of the 2024/25 Leoistic Year including board and member directory.",
     cover: imgDirectory2425,
     href: pdfDirectory2425,
-    onlineHref: "#",
   },
 ];
 
@@ -184,8 +168,7 @@ const Updates = () => {
     return matchType && matchQuery;
   });
 
-  // Featured March for Hero section
-  const featured = updates.find(u => u.id === "newsletter-mar-2025") || updates[0];
+  const featured = updates.find(u => u.id === "directory-2025-26") || updates[0];
 
   return (
     <SiteLayout>
@@ -197,7 +180,7 @@ const Updates = () => {
           <img
             src={clubLogo}
             alt=""
-            className="opacity-15 animate-float drop-shadow-[0_0_40px_hsl(var(--accent)/0.35)]"
+            className="opacity-15 animate-float"
             style={{ width: "clamp(260px, 30vw, 440px)", height: "auto" }}
           />
         </div>
@@ -212,25 +195,26 @@ const Updates = () => {
               <span className="block">Updates &</span>
               <span className="block text-primary">Library.</span>
             </h1>
-            <p className="mt-5 md:mt-7 text-base md:text-xl text-secondary-foreground/75 max-w-xl leading-relaxed">
-              Official records of the Leo Club of Wickramasinghepura.
-            </p>
           </Reveal>
         </div>
       </section>
 
-      {/* FEATURED: MARCH 2025 */}
+      {/* FEATURED */}
       <section className="container-editorial py-14 md:py-24">
         <Reveal>
-          <span className="eyebrow">Latest Newsletter</span>
+          <span className="eyebrow">Latest Release</span>
         </Reveal>
         <div className="mt-6 grid grid-cols-12 gap-y-8 md:gap-10 items-stretch">
           <Reveal animation="fade-in-left" className="col-span-12 md:col-span-5">
             <div className="relative group overflow-hidden bg-secondary aspect-[3/4] md:aspect-auto md:h-full shadow-2xl border border-foreground/5">
               <PlaceholderImage label={featured.title} variant="secondary" aspect="absolute inset-0" src={featured.cover} />
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
-              <div className="absolute top-4 left-4 flex items-center gap-2 bg-accent text-secondary px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em]">
-                <Newspaper className="size-3" /> Latest Issue
+              <div className={cn(
+                "absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em]",
+                featured.type === 'directory' ? "bg-primary text-primary-foreground" : "bg-accent text-secondary"
+              )}>
+                {featured.type === 'directory' ? <BookOpen className="size-3" /> : <Newspaper className="size-3" />} 
+                {featured.type === 'directory' ? "Club Directory" : "Latest Issue"}
               </div>
             </div>
           </Reveal>
@@ -238,29 +222,43 @@ const Updates = () => {
             <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold flex items-center gap-2">
               <Calendar className="size-3" /> {featured.date}
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl mt-4 leading-tight">
-              {featured.title} — <span className="text-primary">{featured.edition}.</span>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl mt-4 leading-tight text-balance">
+              {featured.title}
             </h2>
             <p className="mt-5 text-foreground/75 leading-relaxed max-w-xl">
               {featured.summary}
             </p>
-            <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm text-foreground/60 font-medium">
-              <div className="flex items-center gap-2"><FileText className="size-4 text-accent" /> {featured.pages} pages</div>
-              <div className="flex items-center gap-2"><Download className="size-4 text-accent" /> {featured.size}</div>
-            </div>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a href={featured.href} download className="group inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-5 sm:px-6 py-3 sm:py-3.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a 
+                href={featured.href} 
+                download 
+                className="group inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              >
                 <Download className="size-4" /> Download PDF
               </a>
-              <a href={featured.onlineHref || "#"} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 text-sm font-semibold border border-foreground/20 hover:bg-foreground/5 transition-colors">
-                Read Online <ArrowUpRight className="size-4" />
-              </a>
+
+              {featured.onlineHref && (
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                   <a 
+                    href={featured.onlineHref} 
+                    target="_blank" 
+                    rel="noreferrer" 
+                    className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold border border-accent text-accent hover:bg-accent hover:text-secondary transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.1)]"
+                  >
+                    View Online <ArrowUpRight className="size-4" />
+                  </a>
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-accent animate-pulse px-2">
+                    ✨ Recommended Experience
+                  </span>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ARCHIVE ARCHIVE */}
+      {/* ARCHIVE */}
       <section className="bg-card border-y border-foreground/10">
         <div className="container-editorial py-14 md:py-24">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
@@ -318,7 +316,6 @@ const Updates = () => {
                     <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
                       <PlaceholderImage label={u.title} variant="secondary" aspect="absolute inset-0" src={u.cover} />
                       <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-transparent to-transparent" />
-                      
                       <div className={cn(
                         "absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.2em]",
                         u.type === 'directory' ? "bg-primary text-primary-foreground" : "bg-accent text-secondary"
@@ -335,16 +332,24 @@ const Updates = () => {
                       <h3 className="font-serif text-xl mt-3 leading-tight group-hover:text-primary transition-colors">{u.title}</h3>
                       <p className="mt-3 text-sm text-foreground/65 leading-relaxed flex-1">{u.summary}</p>
                       
-                      <div className="mt-5 pt-5 border-t border-foreground/10 flex items-center justify-between text-xs text-foreground/55">
-                        <span className="font-semibold">{u.pages} pages · {u.size}</span>
-                        <div className="flex gap-3">
+                      <div className="mt-5 pt-5 border-t border-foreground/10 flex items-center justify-between">
+                        <div className="flex items-center gap-4 w-full">
                            {u.onlineHref && u.onlineHref !== "#" && (
-                            <a href={u.onlineHref} target="_blank" rel="noreferrer" className="text-foreground/40 hover:text-primary transition-colors">
-                              <ArrowUpRight className="size-3.5" />
+                            <a 
+                              href={u.onlineHref} 
+                              target="_blank" 
+                              rel="noreferrer" 
+                              className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-accent hover:opacity-70 transition-opacity"
+                            >
+                              <ArrowUpRight className="size-3" /> View Online
                             </a>
                            )}
-                           <a href={u.href} download className="text-primary font-bold hover:underline underline-offset-4">
-                             PDF
+                           <a 
+                            href={u.href} 
+                            download 
+                            className="inline-flex items-center gap-1.5 ml-auto text-[10px] font-bold uppercase tracking-widest text-primary hover:underline underline-offset-4"
+                           >
+                             <Download className="size-3" /> PDF
                            </a>
                         </div>
                       </div>
