@@ -7,9 +7,6 @@ import {
   Trophy, 
   Heart, 
   Banknote,
-  ExternalLink,
-  HelpCircle,
-  ArrowUp // Added for Back to Top
 } from "lucide-react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import PlaceholderImage from "@/components/PlaceholderImage";
@@ -64,29 +61,6 @@ const board = [
   { name: "Leo Kavindu Indramala", role: "Club Treasurer", img: imgKavindu },
 ];
 
-// BACK TO TOP COMPONENT
-const BackToTop = () => {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    const checkScroll = () => setShow(window.scrollY > 500);
-    window.addEventListener("scroll", checkScroll);
-    return () => window.removeEventListener("scroll", checkScroll);
-  }, []);
-
-  return (
-    <button
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={cn(
-        "fixed bottom-8 right-8 z-[60] p-4 rounded-full bg-primary text-primary-foreground shadow-2xl transition-all duration-500 hover:bg-accent hover:text-secondary hover:-translate-y-2",
-        show ? "translate-y-0 opacity-100 scale-100" : "translate-y-20 opacity-0 scale-50 pointer-events-none"
-      )}
-    >
-      <ArrowUp className="size-6" strokeWidth={3} />
-    </button>
-  );
-};
-
 const Hero = () => {
   const [active, setActive] = useState(0);
 
@@ -100,6 +74,21 @@ const Hero = () => {
       <PlaceholderImage label="Wickipura Leos" variant="secondary" aspect="absolute inset-0" src={heroCover} />
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 via-secondary/80 to-secondary/95" />
       
+      {/* FLOATING LOGO (Right Side) */}
+      <div className="absolute inset-y-0 right-0 w-1/2 lg:w-[55%] hidden md:flex items-center justify-end pr-6 lg:pr-16 pointer-events-none">
+        <div className="relative animate-float">
+          <img 
+            src={clubLogo} 
+            alt="" 
+            className="select-none opacity-20 mix-blend-screen drop-shadow-[0_0_40px_hsl(var(--accent)/0.35)]" 
+            style={{ width: "clamp(280px, 38vw, 560px)", height: "auto" }} 
+          />
+        </div>
+      </div>
+
+      {/* Decorative Blob */}
+      <div className="absolute -top-32 -left-32 w-[320px] h-[320px] md:w-[420px] md:h-[420px] bg-primary/30 rounded-full blur-3xl animate-blob" aria-hidden />
+
       <div className="relative h-full container-editorial flex flex-col justify-center">
         {slides.map((s, i) => (
           <div key={i} className={cn("absolute inset-x-4 sm:inset-x-6 md:inset-x-10 top-1/2 -translate-y-[58%] md:-translate-y-1/2 transition-opacity duration-700", i === active ? "opacity-100" : "opacity-0 pointer-events-none")}>
@@ -122,6 +111,14 @@ const Hero = () => {
           <Link to="/donate" className="group inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 md:px-7 py-3 md:py-4 text-xs md:text-base font-bold uppercase tracking-widest hover:bg-accent hover:text-secondary transition-all">
             Donate <Heart className="size-4" />
           </Link>
+        </div>
+
+        <div className="absolute left-4 sm:left-6 md:left-10 bottom-8 md:bottom-10 flex items-center gap-2 md:gap-3 z-20">
+          {slides.map((_, i) => (
+            <button key={i} onClick={() => setActive(i)} className="group relative h-1 w-8 md:w-12 bg-secondary-foreground/20 overflow-hidden">
+              <span className={cn("absolute inset-y-0 left-0 bg-accent transition-all duration-700", i === active ? "w-full" : i < active ? "w-full opacity-60" : "w-0")} />
+            </button>
+          ))}
         </div>
       </div>
     </section>
@@ -215,6 +212,10 @@ const Index = () => (
 
     {/* STATS SECTION */}
     <section className="bg-secondary text-secondary-foreground py-20 md:py-32 relative overflow-hidden">
+      {/* Subtle Background Logo watermark */}
+      <div className="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
+        <img src={clubLogo} alt="" className="w-full h-full object-contain scale-150 rotate-12" />
+      </div>
       <div className="container-editorial relative border-y border-white/5 py-12 text-center">
         <Reveal><h2 className="font-serif text-3xl md:text-6xl leading-tight max-w-2xl mx-auto">Where there's a need, <span className="text-accent italic">there's a Leo.</span></h2></Reveal>
         <div className="mt-16 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
@@ -224,7 +225,9 @@ const Index = () => (
     </section>
 
     {/* FINAL CTA */}
-    <section className="container-editorial py-24 md:py-40 text-center relative">
+    <section className="container-editorial py-24 md:py-40 text-center relative overflow-hidden">
+      <div className="absolute -top-32 -left-32 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] bg-primary/20 rounded-full blur-3xl animate-blob" />
+      <div className="absolute -bottom-40 -right-32 w-[300px] h-[300px] sm:w-[460px] sm:h-[460px] bg-accent/20 rounded-full blur-3xl animate-blob [animation-delay:-8s]" />
       <Reveal>
         <span className="eyebrow !text-accent justify-center">Join Us</span>
         <h2 className="font-serif text-3xl md:text-7xl mt-5 tracking-tighter">You are the <span className="text-accent italic">future</span> of service.</h2>
@@ -238,9 +241,6 @@ const Index = () => (
         </div>
       </Reveal>
     </section>
-
-    {/* BACK TO TOP BUTTON */}
-    <BackToTop />
   </SiteLayout>
 );
 

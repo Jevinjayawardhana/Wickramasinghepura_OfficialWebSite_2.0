@@ -28,8 +28,6 @@ dist-ssr
 src/assets/
 
 
-dist/
-*.zip
 
 dist/
 *.zip

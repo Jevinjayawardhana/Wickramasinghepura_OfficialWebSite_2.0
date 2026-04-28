@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import SiteLayout from "@/components/layout/SiteLayout";
-import { Calendar, Folder, Plus, Search, MapPin, ArrowRight } from "lucide-react";
+import { Calendar, Folder, Plus, Search, MapPin, ArrowRight, Maximize2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Central data index
@@ -26,7 +26,6 @@ const Projects = () => {
     Object.entries(monthlyData).forEach(([slug, data]: [string, any]) => {
       const [month, year] = slug.split("-");
       
-      // Handle Detailed Style (Feb/March/April 2026)
       if (data.subProjects) {
         data.subProjects.forEach((sub: any) => {
           list.push({
@@ -34,13 +33,11 @@ const Projects = () => {
             parentSlug: slug,
             parentMonth: month,
             year: year,
-            isDetailed: true,
-            displayTitle: sub.projectName,
-            displayImg: sub.images?.[0]?.url || data.img // Fallback to month cover
+            // Grab the first image of the subproject for the search thumbnail
+            thumbnail: sub.images?.[0]?.url || data.img 
           });
         });
       } 
-      // Handle Traditional Style (January/2025)
       else if (data.projects) {
         data.projects.forEach((projName: string) => {
           list.push({
@@ -49,9 +46,7 @@ const Projects = () => {
             parentSlug: slug,
             parentMonth: month,
             year: year,
-            isDetailed: false,
-            displayTitle: projName,
-            displayImg: data.img
+            thumbnail: data.img
           });
         });
       }
@@ -59,10 +54,8 @@ const Projects = () => {
     return list;
   }, []);
 
-  // 2. SEARCH LOGIC
   const isSearching = query.trim().length > 0;
 
-  // Filtered results for the Monthly View
   const filteredMonths = useMemo(() => {
     const monthsArray = Object.entries(monthlyData).map(([slug, data]: [string, any]) => {
       const [month, year] = slug.split("-");
@@ -77,7 +70,6 @@ const Projects = () => {
       });
   }, [category]);
 
-  // Filtered results for the Detailed Project View (active during search)
   const filteredProjects = useMemo(() => {
     const q = query.toLowerCase().trim();
     return flattenedProjects.filter((p) => {
@@ -98,10 +90,10 @@ const Projects = () => {
           <img src={heroCover} alt="Leo Service" className="h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-b from-secondary/90 via-secondary/70 to-background" />
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-            <span className="font-serif text-2xl sm:text-3xl md:text-6xl lg:text-7xl text-secondary-foreground border-l-4 border-primary pl-4 sm:pl-5 md:pl-7 uppercase tracking-tighter">
+            <span className="font-serif text-2xl sm:text-3xl md:text-6xl lg:text-7xl text-secondary-foreground border-l-4 border-primary pl-4 sm:pl-5 md:pl-7 uppercase tracking-tighter animate-in fade-in slide-in-from-left-8 duration-700">
               Club Projects
             </span>
-            <p className="mt-4 text-secondary-foreground/70 max-w-lg text-sm md:text-base">
+            <p className="mt-4 text-secondary-foreground/70 max-w-lg text-sm md:text-base animate-in fade-in slide-in-from-bottom-4 duration-1000">
               Explore our monthly chronicles of community impact and leadership.
             </p>
           </div>
@@ -139,7 +131,6 @@ const Projects = () => {
       {/* DYNAMIC CONTENT GRID */}
       <section className="container-editorial py-20">
         
-        {/* CASE A: USER IS SEARCHING -> Show Individual Project Cards */}
         {isSearching ? (
           <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="mb-10 flex items-center gap-4">
@@ -158,6 +149,16 @@ const Projects = () => {
                     to={`/projects/${p.parentSlug}`}
                     className="group bg-card border border-foreground/5 hover:border-primary/40 transition-all flex flex-col hover:shadow-2xl hover:-translate-y-1 duration-500 overflow-hidden"
                   >
+                    {/* NEW: Thumbnail Preview for Search Results */}
+                    <div className="relative aspect-video overflow-hidden bg-muted">
+                        <img 
+                            src={p.thumbnail} 
+                            alt={p.projectName} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                        />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                    </div>
+
                     <div className="p-6 flex flex-col h-full">
                       <div className="flex justify-between items-start mb-4">
                         <span className="text-[9px] font-black bg-accent text-secondary px-2 py-1 uppercase tracking-widest">
@@ -172,7 +173,7 @@ const Projects = () => {
                         {p.projectName}
                       </h3>
 
-                      <p className="text-sm text-foreground/60 line-clamp-3 mb-6 leading-relaxed flex-1">
+                      <p className="text-sm text-foreground/60 line-clamp-2 mb-6 leading-relaxed flex-1">
                         {p.description}
                       </p>
 
@@ -199,7 +200,6 @@ const Projects = () => {
           </div>
         ) : (
           
-          /* CASE B: DEFAULT VIEW -> Show Monthly Chronicles */
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-in fade-in duration-700">
             {filteredMonths.map((p) => (
               <Link
@@ -210,9 +210,12 @@ const Projects = () => {
                 <div className="relative overflow-hidden aspect-[5/4]">
                   <img src={p.img} alt={p.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                  
+                  {/* Plus Icon Overlay */}
                   <div className="absolute bottom-4 right-4 size-10 grid place-items-center bg-primary text-primary-foreground group-hover:bg-accent group-hover:text-secondary transition-all duration-300">
                     <Plus className="size-5" />
                   </div>
+
                   <span className={cn(
                     "absolute top-4 left-4 text-[9px] font-black uppercase tracking-[0.2em] px-3 py-1.5 shadow-sm",
                     p.year === "2026" ? "bg-accent text-secondary" : "bg-primary text-primary-foreground"
