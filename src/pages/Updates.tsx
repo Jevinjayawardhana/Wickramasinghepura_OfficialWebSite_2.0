@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, BookOpen, Calendar, Download, FileText, Newspaper, Search, Eye } from "lucide-react";
+import { ArrowUpRight, BookOpen, Calendar, Download, FileText, Newspaper, Search, FlaskConical } from "lucide-react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Reveal from "@/components/Reveal";
 import PlaceholderImage from "@/components/PlaceholderImage";
@@ -27,24 +27,36 @@ import pdfDec from "@/assets/NewsLetters/LEO Newsletter/Newsletter_December.pdf"
 // ASSET IMPORTS - CLUB DIRECTORIES
 import imgDirectory2425 from "@/assets/ClubDirectorys/Club_Directory_2024-25.png";
 import pdfDirectory2425 from "@/assets/ClubDirectorys/Club_Directory_2024-25.pdf";
-
-// NEW 2025/26 DIRECTORY ASSETS
 import imgDirectory2526 from "@/assets/ClubDirectorys/Club Directory 2025-26.png";
 import pdfDirectory2526 from "@/assets/ClubDirectorys/Leo Club of Wickramasinghepura CLUB DIRETORY 202526.pdf";
 
+// ASSET IMPORTS - RESEARCH
+import imgResearch2025 from "@/assets/Research/Research2025.png";
+import imgResearch2026 from "@/assets/Research/Research2026.jpeg";
+
 type UpdateItem = {
   id: string;
-  type: "newsletter" | "directory";
+  type: "newsletter" | "directory" | "research";
   title: string;
   edition: string;
   date: string;
   summary: string;
   cover?: string;
-  href: string;       
+  href?: string;       
   onlineHref?: string; 
 };
 
 const updates: UpdateItem[] = [
+  {
+    id: "research-2026",
+    type: "research",
+    title: "The Impact Of HIV/STD Awareness on Preventive Practices Among Sri Lankan Youth",
+    edition: "Research Paper",
+    date: "2026",
+    summary: "A comprehensive study focusing on youth aged 15-29 regarding preventive health practices and awareness levels.",
+    cover: imgResearch2026,
+    onlineHref: "https://online.anyflip.com/rjdfi/pzyc/mobile/index.html",
+  },
   {
     id: "directory-2025-26",
     type: "directory",
@@ -55,6 +67,16 @@ const updates: UpdateItem[] = [
     cover: imgDirectory2526,
     href: pdfDirectory2526,
     onlineHref: "https://heyzine.com/flip-book/85ffb27bd0.html",
+  },
+  {
+    id: "research-2025",
+    type: "research",
+    title: "Mental Health Stigma in Educational Institutions",
+    edition: "Research Paper",
+    date: "2025",
+    summary: "Exploring the barriers and societal stigmas surrounding mental health support within academic environments.",
+    cover: imgResearch2025,
+    onlineHref: "https://online.anyflip.com/atjqz/vsqx/mobile/index.html",
   },
   {
     id: "newsletter-mar-2025",
@@ -149,12 +171,13 @@ const updates: UpdateItem[] = [
   },
 ];
 
-type Filter = "all" | "newsletter" | "directory";
+type Filter = "all" | "newsletter" | "directory" | "research";
 
-const filters: { id: Filter; label: string; icon: typeof Newspaper }[] = [
+const filters: { id: Filter; label: string; icon: any }[] = [
   { id: "all", label: "All Updates", icon: FileText },
   { id: "newsletter", label: "Newsletters", icon: Newspaper },
   { id: "directory", label: "Annual Directories", icon: BookOpen },
+  { id: "research", label: "Research", icon: FlaskConical },
 ];
 
 const Updates = () => {
@@ -177,12 +200,7 @@ const Updates = () => {
         <div className="absolute -top-32 -left-32 w-[320px] h-[320px] md:w-[420px] md:h-[420px] bg-primary/30 rounded-full blur-3xl animate-blob" aria-hidden />
         <div className="absolute -bottom-40 -right-32 w-[380px] h-[380px] md:w-[520px] md:h-[520px] bg-accent/25 rounded-full blur-3xl animate-blob [animation-delay:-6s]" aria-hidden />
         <div className="absolute inset-y-0 right-0 w-1/2 lg:w-[45%] hidden md:flex items-center justify-end pr-6 lg:pr-16 pointer-events-none">
-          <img
-            src={clubLogo}
-            alt=""
-            className="opacity-15 animate-float"
-            style={{ width: "clamp(260px, 30vw, 440px)", height: "auto" }}
-          />
+          <img src={clubLogo} alt="" className="opacity-15 animate-float" style={{ width: "clamp(260px, 30vw, 440px)", height: "auto" }} />
         </div>
 
         <div className="relative container-editorial py-20 md:py-32">
@@ -201,9 +219,7 @@ const Updates = () => {
 
       {/* FEATURED */}
       <section className="container-editorial py-14 md:py-24">
-        <Reveal>
-          <span className="eyebrow">Latest Release</span>
-        </Reveal>
+        <Reveal><span className="eyebrow">Latest Release</span></Reveal>
         <div className="mt-6 grid grid-cols-12 gap-y-8 md:gap-10 items-stretch">
           <Reveal animation="fade-in-left" className="col-span-12 md:col-span-5">
             <div className="relative group overflow-hidden bg-secondary aspect-[3/4] md:aspect-auto md:h-full shadow-2xl border border-foreground/5">
@@ -211,10 +227,10 @@ const Updates = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
               <div className={cn(
                 "absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em]",
-                featured.type === 'directory' ? "bg-primary text-primary-foreground" : "bg-accent text-secondary"
+                featured.type === 'directory' ? "bg-primary text-primary-foreground" : featured.type === 'research' ? "bg-emerald-600 text-white" : "bg-accent text-secondary"
               )}>
-                {featured.type === 'directory' ? <BookOpen className="size-3" /> : <Newspaper className="size-3" />} 
-                {featured.type === 'directory' ? "Club Directory" : "Latest Issue"}
+                {featured.type === 'directory' ? <BookOpen className="size-3" /> : featured.type === 'research' ? <FlaskConical className="size-3" /> : <Newspaper className="size-3" />} 
+                {featured.type === 'directory' ? "Club Directory" : featured.type === 'research' ? "Research Paper" : "Latest Issue"}
               </div>
             </div>
           </Reveal>
@@ -222,35 +238,21 @@ const Updates = () => {
             <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold flex items-center gap-2">
               <Calendar className="size-3" /> {featured.date}
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl mt-4 leading-tight text-balance">
-              {featured.title}
-            </h2>
-            <p className="mt-5 text-foreground/75 leading-relaxed max-w-xl">
-              {featured.summary}
-            </p>
+            <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl mt-4 leading-tight text-balance">{featured.title}</h2>
+            <p className="mt-5 text-foreground/75 leading-relaxed max-w-xl">{featured.summary}</p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a 
-                href={featured.href} 
-                download 
-                className="group inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <Download className="size-4" /> Download PDF
-              </a>
-
+              {featured.href && (
+                <a href={featured.href} download className="group inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                  <Download className="size-4" /> Download PDF
+                </a>
+              )}
               {featured.onlineHref && (
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                   <a 
-                    href={featured.onlineHref} 
-                    target="_blank" 
-                    rel="noreferrer" 
-                    className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold border border-accent text-accent hover:bg-accent hover:text-secondary transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.1)]"
-                  >
+                   <a href={featured.onlineHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold border border-accent text-accent hover:bg-accent hover:text-secondary transition-all duration-300 shadow-[0_0_15px_rgba(var(--accent-rgb),0.1)]">
                     View Online <ArrowUpRight className="size-4" />
                   </a>
-                  <span className="text-[9px] uppercase tracking-widest font-bold text-accent animate-pulse px-2">
-                    ✨ Recommended Experience
-                  </span>
+                  <span className="text-[9px] uppercase tracking-widest font-bold text-accent animate-pulse px-2">✨ Recommended Experience</span>
                 </div>
               )}
             </div>
@@ -264,20 +266,12 @@ const Updates = () => {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
             <Reveal>
               <span className="eyebrow">Archive Library</span>
-              <h2 className="font-serif text-3xl md:text-5xl mt-4 leading-tight">
-                Browse our <span className="text-primary">collection.</span>
-              </h2>
+              <h2 className="font-serif text-3xl md:text-5xl mt-4 leading-tight">Browse our <span className="text-primary">collection.</span></h2>
             </Reveal>
             <Reveal animation="fade-in-right" delay={100}>
               <div className="relative">
                 <Search className="size-4 text-foreground/40 absolute left-3 top-1/2 -translate-y-1/2" />
-                <input
-                  type="search"
-                  placeholder="Search publications…"
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                  className="w-full md:w-72 pl-10 pr-4 py-3 bg-background border border-foreground/15 text-sm focus:outline-none focus:border-primary transition-colors"
-                />
+                <input type="search" placeholder="Search publications…" value={query} onChange={(e) => setQuery(e.target.value)} className="w-full md:w-72 pl-10 pr-4 py-3 bg-background border border-foreground/15 text-sm focus:outline-none focus:border-primary transition-colors" />
               </div>
             </Reveal>
           </div>
@@ -287,70 +281,43 @@ const Updates = () => {
               const Icon = f.icon;
               const active = filter === f.id;
               return (
-                <button
-                  key={f.id}
-                  onClick={() => setFilter(f.id)}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.15em] transition-colors border",
-                    active
-                      ? "bg-secondary text-secondary-foreground border-secondary"
-                      : "bg-transparent text-foreground/65 border-foreground/15 hover:border-foreground/40"
-                  )}
-                >
+                <button key={f.id} onClick={() => setFilter(f.id)} className={cn("inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.15em] transition-colors border", active ? "bg-secondary text-secondary-foreground border-secondary" : "bg-transparent text-foreground/65 border-foreground/15 hover:border-foreground/40")}>
                   <Icon className="size-3.5" /> {f.label}
                 </button>
               );
             })}
           </div>
 
-          {filtered.length === 0 ? (
-            <div className="py-16 text-center text-foreground/55">No match found.</div>
-          ) : (
+          {filtered.length === 0 ? <div className="py-16 text-center text-foreground/55">No match found.</div> : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filtered.map((u, i) => (
                 <Reveal key={u.id} animation="fade-in" delay={i * 80}>
-                  <article className={cn(
-                    "group bg-background border transition-all h-full flex flex-col",
-                    u.type === 'directory' ? "border-primary shadow-xl" : "border-foreground/10 hover:border-primary/40"
-                  )}>
+                  <article className={cn("group bg-background border transition-all h-full flex flex-col", u.type === 'directory' ? "border-primary shadow-xl" : u.type === 'research' ? "border-emerald-200 hover:border-emerald-500 shadow-sm" : "border-foreground/10 hover:border-primary/40")}>
                     <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
                       <PlaceholderImage label={u.title} variant="secondary" aspect="absolute inset-0" src={u.cover} />
                       <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-transparent to-transparent" />
-                      <div className={cn(
-                        "absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.2em]",
-                        u.type === 'directory' ? "bg-primary text-primary-foreground" : "bg-accent text-secondary"
-                      )}>
-                        {u.type === "newsletter" ? <Newspaper className="size-3" /> : <BookOpen className="size-3" />}
+                      <div className={cn("absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.2em]", u.type === 'directory' ? "bg-primary text-primary-foreground" : u.type === 'research' ? "bg-emerald-600 text-white" : "bg-accent text-secondary")}>
+                        {u.type === "newsletter" ? <Newspaper className="size-3" /> : u.type === 'research' ? <FlaskConical className="size-3" /> : <BookOpen className="size-3" />}
                         {u.type}
                       </div>
                     </div>
                     
                     <div className="p-4 sm:p-6 flex-1 flex flex-col">
-                      <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold flex items-center gap-2">
-                        <Calendar className="size-3" /> {u.date}
-                      </div>
-                      <h3 className="font-serif text-xl mt-3 leading-tight group-hover:text-primary transition-colors">{u.title}</h3>
-                      <p className="mt-3 text-sm text-foreground/65 leading-relaxed flex-1">{u.summary}</p>
-                      
+                      <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-semibold flex items-center gap-2"><Calendar className="size-3" /> {u.date}</div>
+                      <h3 className="font-serif text-xl mt-3 leading-tight group-hover:text-primary transition-colors line-clamp-3">{u.title}</h3>
+                      <p className="mt-3 text-sm text-foreground/65 leading-relaxed flex-1 line-clamp-3">{u.summary}</p>
                       <div className="mt-5 pt-5 border-t border-foreground/10 flex items-center justify-between">
                         <div className="flex items-center gap-4 w-full">
-                           {u.onlineHref && u.onlineHref !== "#" && (
-                            <a 
-                              href={u.onlineHref} 
-                              target="_blank" 
-                              rel="noreferrer" 
-                              className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-accent hover:opacity-70 transition-opacity"
-                            >
+                           {u.onlineHref && (
+                            <a href={u.onlineHref} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-accent hover:opacity-70 transition-opacity">
                               <ArrowUpRight className="size-3" /> View Online
                             </a>
                            )}
-                           <a 
-                            href={u.href} 
-                            download 
-                            className="inline-flex items-center gap-1.5 ml-auto text-[10px] font-bold uppercase tracking-widest text-primary hover:underline underline-offset-4"
-                           >
-                             <Download className="size-3" /> PDF
-                           </a>
+                           {u.href && (
+                            <a href={u.href} download className="inline-flex items-center gap-1.5 ml-auto text-[10px] font-bold uppercase tracking-widest text-primary hover:underline underline-offset-4">
+                              <Download className="size-3" /> PDF
+                            </a>
+                           )}
                         </div>
                       </div>
                     </div>

@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Added useEffect
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, Heart, HelpCircle } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { cn } from "@/lib/utils";
 import clubLogo from "@/assets/site/club-logo.png";
 
@@ -11,16 +11,28 @@ const links = [
   { to: "/committee", label: "Team" },
   { to: "/gallery", label: "Gallery" },
   { to: "/updates", label: "Updates" },
-  { to: "/faq", label: "FAQ" }, // Added FAQ link
+  { to: "/faq", label: "FAQ" },
   { to: "/contact", label: "Contact" },
 ];
 
 const SiteHeader = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false); // Track scroll for shadow effect
   const { pathname } = useLocation();
 
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-foreground/10">
+    <header 
+      className={cn(
+        "sticky top-0 z-50 w-full bg-background/85 backdrop-blur-md border-b transition-all duration-300",
+        scrolled ? "border-foreground/10 shadow-md py-1" : "border-transparent py-0"
+      )}
+    >
       <div className="container-editorial flex items-center justify-between py-4 md:py-5">
         <Link to="/" className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
           <img
@@ -55,7 +67,7 @@ const SiteHeader = () => {
           ))}
         </nav>
 
-        {/* Desktop Action Buttons */}
+        {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-3">
           <Link
             to="/donate"
@@ -72,7 +84,6 @@ const SiteHeader = () => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
           aria-label="Toggle menu"
           className="lg:hidden p-2 -mr-2 text-foreground"
@@ -102,23 +113,6 @@ const SiteHeader = () => {
                 {pathname === l.to && <span className="size-2 bg-primary rounded-full" />}
               </NavLink>
             ))}
-            
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Link
-                to="/donate"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-5 py-4 text-sm font-bold uppercase tracking-widest shadow-lg"
-              >
-                <Heart size={16} fill="currentColor" /> Donate Now
-              </Link>
-              <Link
-                to="/join"
-                onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 bg-accent text-secondary px-5 py-4 text-sm font-bold uppercase tracking-widest text-center"
-              >
-                Become a Leo
-              </Link>
-            </div>
           </nav>
         </div>
       )}
