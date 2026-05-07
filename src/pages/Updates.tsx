@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowUpRight, BookOpen, Calendar, Download, FileText, Newspaper, Search, FlaskConical } from "lucide-react";
+import { ArrowUpRight, BookOpen, Calendar, Download, FileText, Newspaper, Search, FlaskConical, BarChart3 } from "lucide-react"; // Added BarChart3
 import SiteLayout from "@/components/layout/SiteLayout";
 import Reveal from "@/components/Reveal";
 import PlaceholderImage from "@/components/PlaceholderImage";
@@ -34,9 +34,12 @@ import pdfDirectory2526 from "@/assets/ClubDirectorys/Leo Club of Wickramasinghe
 import imgResearch2025 from "@/assets/Research/Research2025.png";
 import imgResearch2026 from "@/assets/Research/Research2026.jpeg";
 
+// ASSET IMPORTS - TREASURER REPORTS
+import imgTreasureReport from "@/assets/Audited_Treasurer_report/Treasure_Report.jpeg";
+
 type UpdateItem = {
   id: string;
-  type: "newsletter" | "directory" | "research";
+  type: "newsletter" | "directory" | "research" | "treasurer-report"; // Added treasurer-report
   title: string;
   edition: string;
   date: string;
@@ -47,6 +50,16 @@ type UpdateItem = {
 };
 
 const updates: UpdateItem[] = [
+  {
+    id: "treasurer-report-24-25",
+    type: "treasurer-report",
+    title: "Annual Audited Treasurer Report 2024 / 25",
+    edition: "Audited Report",
+    date: "Leoistic Year 2024 / 25",
+    summary: "The formal financial audit for the 2024/25 Leoistic Year, detailing income, project expenditures, and club asset management.",
+    cover: imgTreasureReport,
+    onlineHref: "https://drive.google.com/drive/folders/1WA9t7v9KPnmxJdmpu9slmtPSt4r6Bd8h",
+  },
   {
     id: "research-2026",
     type: "research",
@@ -171,13 +184,14 @@ const updates: UpdateItem[] = [
   },
 ];
 
-type Filter = "all" | "newsletter" | "directory" | "research";
+type Filter = "all" | "newsletter" | "directory" | "research" | "treasurer-report";
 
 const filters: { id: Filter; label: string; icon: any }[] = [
   { id: "all", label: "All Updates", icon: FileText },
   { id: "newsletter", label: "Newsletters", icon: Newspaper },
   { id: "directory", label: "Annual Directories", icon: BookOpen },
   { id: "research", label: "Research", icon: FlaskConical },
+  { id: "treasurer-report", label: "Treasurer Reports", icon: BarChart3 },
 ];
 
 const Updates = () => {
@@ -227,10 +241,19 @@ const Updates = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
               <div className={cn(
                 "absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.2em]",
-                featured.type === 'directory' ? "bg-primary text-primary-foreground" : featured.type === 'research' ? "bg-emerald-600 text-white" : "bg-accent text-secondary"
+                featured.type === 'directory' ? "bg-primary text-primary-foreground" : 
+                featured.type === 'research' ? "bg-emerald-600 text-white" : 
+                featured.type === 'treasurer-report' ? "bg-amber-600 text-white" :
+                "bg-accent text-secondary"
               )}>
-                {featured.type === 'directory' ? <BookOpen className="size-3" /> : featured.type === 'research' ? <FlaskConical className="size-3" /> : <Newspaper className="size-3" />} 
-                {featured.type === 'directory' ? "Club Directory" : featured.type === 'research' ? "Research Paper" : "Latest Issue"}
+                {featured.type === 'directory' ? <BookOpen className="size-3" /> : 
+                 featured.type === 'research' ? <FlaskConical className="size-3" /> : 
+                 featured.type === 'treasurer-report' ? <BarChart3 className="size-3" /> :
+                 <Newspaper className="size-3" />} 
+                {featured.type === 'directory' ? "Club Directory" : 
+                 featured.type === 'research' ? "Research Paper" : 
+                 featured.type === 'treasurer-report' ? "Annual Audit" :
+                 "Latest Issue"}
               </div>
             </div>
           </Reveal>
@@ -292,13 +315,24 @@ const Updates = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {filtered.map((u, i) => (
                 <Reveal key={u.id} animation="fade-in" delay={i * 80}>
-                  <article className={cn("group bg-background border transition-all h-full flex flex-col", u.type === 'directory' ? "border-primary shadow-xl" : u.type === 'research' ? "border-emerald-200 hover:border-emerald-500 shadow-sm" : "border-foreground/10 hover:border-primary/40")}>
+                  <article className={cn("group bg-background border transition-all h-full flex flex-col", 
+                    u.type === 'directory' ? "border-primary shadow-xl" : 
+                    u.type === 'research' ? "border-emerald-200 hover:border-emerald-500 shadow-sm" : 
+                    u.type === 'treasurer-report' ? "border-amber-200 hover:border-amber-500 shadow-sm" :
+                    "border-foreground/10 hover:border-primary/40")}>
                     <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
                       <PlaceholderImage label={u.title} variant="secondary" aspect="absolute inset-0" src={u.cover} />
                       <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-transparent to-transparent" />
-                      <div className={cn("absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.2em]", u.type === 'directory' ? "bg-primary text-primary-foreground" : u.type === 'research' ? "bg-emerald-600 text-white" : "bg-accent text-secondary")}>
-                        {u.type === "newsletter" ? <Newspaper className="size-3" /> : u.type === 'research' ? <FlaskConical className="size-3" /> : <BookOpen className="size-3" />}
-                        {u.type}
+                      <div className={cn("absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.2em]", 
+                        u.type === 'directory' ? "bg-primary text-primary-foreground" : 
+                        u.type === 'research' ? "bg-emerald-600 text-white" : 
+                        u.type === 'treasurer-report' ? "bg-amber-600 text-white" :
+                        "bg-accent text-secondary")}>
+                        {u.type === "newsletter" ? <Newspaper className="size-3" /> : 
+                         u.type === 'research' ? <FlaskConical className="size-3" /> : 
+                         u.type === 'treasurer-report' ? <BarChart3 className="size-3" /> :
+                         <BookOpen className="size-3" />}
+                        {u.type.replace('-', ' ')}
                       </div>
                     </div>
                     

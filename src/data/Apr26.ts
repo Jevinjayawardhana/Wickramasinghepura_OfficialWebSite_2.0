@@ -3,159 +3,91 @@ import { MonthlyProjectData } from "./types";
 // Import Month Cover
 import cover from "@/assets/projects/cvrApr26.jpeg";
 
-// PROJECT 1: FITCORE 3.2
+// PROJECT IMPORTS
 import fit32_1 from "@/assets/ProjectsImages/Fit_Core_3.2_1.jpeg";
 import fit32_2 from "@/assets/ProjectsImages/Fit_core_3.2_2.jpeg";
 import fit32_3 from "@/assets/ProjectsImages/Fit_core_3.2_3.jpeg";
-
-// PROJECT 2: FITCORE 3.3
 import fit33_1 from "@/assets/ProjectsImages/Fit_core_3.3_1.jpeg";
 import fit33_2 from "@/assets/ProjectsImages/Fit_core_3.3_2.jpeg";
 import fit33_3 from "@/assets/ProjectsImages/Fit_core_3.3_3.jpeg";
-
-// PROJECT 3: උත්තමාචාර 1.2
 import uththama1 from "@/assets/ProjectsImages/Uththamachara_1.2_1.jpeg";
 import uththama2 from "@/assets/ProjectsImages/Uththamachara_1.2_2.jpeg";
 import uththama3 from "@/assets/ProjectsImages/Uththamachara_1.2_3.jpeg";
-
-// PROJECT 4: Shahurda Dayada 5.2
 import shahurda1 from "@/assets/ProjectsImages/Shahurda_Dayada_5.2_1.jpeg";
 import shahurda2 from "@/assets/ProjectsImages/Shahurda_Dayada_5.2_2.jpeg";
 import shahurda3 from "@/assets/ProjectsImages/Shahurda_Dayada_5.2_3.jpeg";
-
-// PROJECT 5: DRUGS KILL Phase 02
 import drugs1 from "@/assets/ProjectsImages/DRUGS_KILL_Phase_02_1.jpeg";
 import drugs2 from "@/assets/ProjectsImages/DRUGS_KILL_Phase_02_2.jpeg";
-
-// PROJECT 6: H2O 1.1
 import h2o11_1 from "@/assets/ProjectsImages/H2O_1.1_1.jpeg";
 import h2o11_2 from "@/assets/ProjectsImages/H2O_1.1_2.jpeg";
 import h2o11_3 from "@/assets/ProjectsImages/H2O_1.1_3.jpeg";
-
-// PROJECT 7: Project H2O Phase 2
 import h2oph2_1 from "@/assets/ProjectsImages/Project_H2O_Phase_2_1.jpeg";
 import h2oph2_2 from "@/assets/ProjectsImages/Project_H2O_Phase_2_2.jpeg";
 import h2oph2_3 from "@/assets/ProjectsImages/Project_H2O_Phase_2_3.jpeg";
-
-// PROJECT 8: Terra Thrive 2.3
 import terra1 from "@/assets/ProjectsImages/Terra_Thrive_2.3_1.jpeg";
 import terra2 from "@/assets/ProjectsImages/Terra_Thrive_2.3_2.jpeg";
 import terra3 from "@/assets/ProjectsImages/Terra_Thrive_2.3_3.jpeg";
-
-// PROJECT 9: Colours of Hope Phase 2
-import hopePh2_1 from "@/assets/ProjectsImages/Colours_of_Hope_2_1.jpeg";
-import hopePh2_2 from "@/assets/ProjectsImages/Colours_of_Hope_2_2.jpeg";
-import hopePh2_3 from "@/assets/ProjectsImages/Colours_of_Hope_2_3.jpeg";
-
-// PROJECT 10: Wave of Whispers
 import waveWhisp1 from "@/assets/ProjectsImages/Wave_of_Whispers_3rd_phase_1.jpeg";
 import waveWhisp2 from "@/assets/ProjectsImages/Wave_of_Whispers_3rd_phase_2.jpeg";
 import waveWhisp3 from "@/assets/ProjectsImages/Wave_of_Whispers_3rd_phase_3.jpeg";
-
-// PROJECT 11: Leo Lumina 1.1
 import lumina1 from "@/assets/ProjectsImages/Leo_Lumina_1.1_1.jpeg";
 import lumina2 from "@/assets/ProjectsImages/Leo_Lumina_1.1_2.jpeg";
 import lumina3 from "@/assets/ProjectsImages/Leo_Lumina_1.1_3.jpeg";
-
-// PROJECT 12: Pandora 26
 import pandora1 from "@/assets/ProjectsImages/Pandora26_1.jpeg";
 import pandora2 from "@/assets/ProjectsImages/Pandora26_2.jpeg";
 import pandora3 from "@/assets/ProjectsImages/Pandora26_3.jpeg";
+import eka1 from "@/assets/ProjectsImages/Project_Eka_Iththaka_Mal_Phase_02_1.jpeg";
+import eka2 from "@/assets/ProjectsImages/Project_Eka_Iththaka_Mal_Phase_02_2.jpeg";
+import hope1 from "@/assets/ProjectsImages/Project_colors_of_hope_phase_02_1.jpeg";
+import hope2 from "@/assets/ProjectsImages/Project_colors_of_hope_phase_02_2.jpeg";
+
+// NEW PROJECTS (LATE APRIL)
+import h2oPh3 from "@/assets/ProjectsImages/Project_H2O_Phase_3_1.jpeg";
+import drugsPh3_1 from "@/assets/ProjectsImages/Project_Drugs_Kill_Phase_3_1.jpeg";
+import drugsPh3_2 from "@/assets/ProjectsImages/Project_Drugs_Kill_Phase_3_2.jpeg";
+import ekaPh3_1 from "@/assets/ProjectsImages/Project_Eka_Iththaka_Mal_Phase_03_1.jpeg";
+import ekaPh3_2 from "@/assets/ProjectsImages/Project_Eka_Iththaka_Mal_Phase_03_2.jpeg";
+import uththama13_1 from "@/assets/ProjectsImages/Project_Uththamachara_1.3_1 .jpeg";
+import uththama13_2 from "@/assets/ProjectsImages/Project_Uththamachara_1.3_2 .jpeg";
+import wavesSupport1 from "@/assets/ProjectsImages/Project_Waves_of_Support_1.3_1.jpeg";
+import wavesSupport2 from "@/assets/ProjectsImages/Project_Waves_of_Support_1.3_2.jpeg";
+import roarScape1 from "@/assets/ProjectsImages/Project_roar_scape_1.3_1.jpeg";
+import roarScape2 from "@/assets/ProjectsImages/Project_roar_scape_1.3_2.jpeg";
+
+// COLOURS OF HOPE PHASE 3 IMPORTS
+import hope3_1 from "@/assets/ProjectsImages/Project_colors_of_hope_phase_03_1.jpeg";
+import hope3_2 from "@/assets/ProjectsImages/Project_colors_of_hope_phase_03_2.jpeg";
 
 export const April26Data: MonthlyProjectData = {
   title: "APRIL 2026",
   img: cover,
   subProjects: [
     {
-      projectName: "FITCORE 3.2",
-      date: "17th April 2026",
-      location: "Jayagath Sports Club",
-      description: "We are proud to share the successful completion of FITCORE 3.2 on 17th April, where we donated essential sports items to Jayagath Sports Club with the aim of strengthening grassroots sports and encouraging young athletes within the community.This initiative was more than a donation, it was a step toward empowering the talent, promoting active lifestyles, and supporting the spirit of teamwork and unity through sports.Together, we continue to build stronger communities through service and impact.",
-      images: [
-        { type: "image", url: fit32_1 },
-        { type: "image", url: fit32_2 },
-        { 
-          type: "video_link", 
-          url: fit32_3, 
-          videoUrl: "https://vt.tiktok.com/ZS9k7TcsG/" 
-        }
-      ]
-    },
-    {
-      projectName: "Terra Thrive 2.3",
-      date: "26th April 2026",
-      location: "LOLC Child Care Center, Madiwela",
-      description: "As part of our commitment to Responsible Consumption and Waste Management, we successfully transformed discarded oil barrel into durable and creative chair, proving that waste can be reimagined into something meaningful.On 26th April, these upcycled chair were donated to the LOLC Child Care Center, Madiwela, creating a positive impact while promoting sustainability and environmental responsibility.This initiative reflects our belief that small sustainable actions can create lasting change reducing waste, encouraging reuse, and contributing towards a greener future for the next generation.",
-      images: [
-        { type: "image", url: terra1 },
-        { type: "image", url: terra2 },
-        { 
-          type: "video_link", 
-          url: terra3, 
-          videoUrl: "https://vt.tiktok.com/ZS9B6ng5R/" 
-        }
-      ]
-    },
-    {
       projectName: "උත්තමාචාර 1.2",
       date: "11th April 2026",
       location: "Athurugiriya Pore Area",
-      description: "Project උත්‍තමාචාර 1.2 stands as a heartfelt initiative dedicated to promoting environmental sustainability while honouring the invaluable presence of our senior citizens within the community. This meaningful project was successfully carried out on 11th April 2026 at Athurugiriya Pore Area, marking a moment of service, respect and environmental responsibility.As part of this initiative, plants were distributed among senior citizens, symbolizing growth, care and continuity of life. Beyond being a simple act of giving, this gesture represented our commitment to building a greener future while appreciating the wisdom and life experiences of the elder generation.",
+      description: "A heartfelt initiative dedicated to promoting environmental sustainability while honouring senior citizens. Plants were distributed to symbolize growth and continuity, representing our commitment to a greener future while appreciating the wisdom of the elder generation.",
       images: [
         { type: "image", url: uththama1 },
         { type: "image", url: uththama2 },
-        { 
-          type: "video_link", 
-          url: uththama3, 
-          videoUrl: "https://vt.tiktok.com/ZS9kvHcot/" 
-        }
+        { type: "video_link", url: uththama3, videoUrl: "https://vt.tiktok.com/ZS9kvHcot/" }
       ]
     },
     {
       projectName: "DRUGS KILL — Phase 02",
       date: "11th April 2026",
       location: "Kottawa Area",
-      description: "On the 11th of April, our leos took a bold step forward in the fight against drug abuse in the Kottawa area through DRUGS KILL – Phase 02.We extended our awareness campaign beyond conversations into everyday life by, Distributing informative awareness leaflets and Placing impactful awareness stickers inside public busesThis is a joint initiative with Leo Club of Raththanapitiya . This initiative was driven by a simple but powerful belief of prevention begins with awareness.",
+      description: "A bold step against drug abuse. Leos distributed informative leaflets and placed impactful awareness stickers inside public buses in Kottawa. This joint initiative with the Leo Club of Raththanapitiya focused on the belief that prevention begins with awareness.",
       images: [
         { type: "image", url: drugs1 },
-        { 
-          type: "video_link", 
-          url: drugs2, 
-          videoUrl: "https://vt.tiktok.com/ZS9kvKAut/" 
-        }
-      ]
-    },
-    {
-      projectName: "Project H2O — Phase 2",
-      date: "15th April 2026",
-      location: "Rural Community School",
-      description: "Access to clean and safe water remains one of the most essential yet challenging needs for many rural schools in Sri Lanka. With the successful completion of Project H2O – Phase 2 on 15th April 2026, we took another meaningful step toward supporting a healthier and more sustainable learning environment for schoolchildren in a rural community.As part of this initiative, we proudly donated two large-capacity water storage tanks to the school, helping ensure a more reliable supply of clean water for students and staff. This contribution is expected to support daily drinking water needs, maintain hygiene standards, and create a safer school environment that encourages regular attendance and well-being.",
-      images: [
-        { type: "image", url: h2oph2_1 },
-        { type: "image", url: h2oph2_2 },
-        { 
-          type: "video_link", 
-          url: h2oph2_3, 
-          videoUrl: "https://vt.tiktok.com/ZS9k3SaF3/" 
-        }
-      ]
-    },
-    {
-      projectName: "PANDORA 26 | Evening of Appreciations",
-      date: "19th April 2026",
-      location: "Lions Center, Kotte",
-      description: "We are pleased to announce the successful completion of PANDORA 26 Appreciation Awards Ceremony, held on 19th April at Lions Center Kotte, under the Project Leo Genesis 1.3 by the Leo Club of Wickramasinghepura.This initiative was dedicated to recognizing and appreciating the dedication, commitment and outstanding contributions of our Wicikies, who continuously strengthen the spirit of Leoism through their service and leadership.Proud of what we have achieved together.",
-      images: [
-        { type: "image", url: pandora1 },
-        { type: "image", url: pandora2 },
-        { type: "image", url: pandora3 }
+        { type: "video_link", url: drugs2, videoUrl: "https://vt.tiktok.com/ZS9kvKAut/" }
       ]
     },
     {
       projectName: "Shahurda Dayada 5.2",
       date: "11th April 2026",
       location: "Kottawa Area",
-      description: "On the 11th of April in the Kottawa area, we proudly conducted Project Shahurda Dayada 5.2, a meaningful awareness initiative dedicated to promoting child health and well-being.Through this phase of the project, we focused on two critical yet often overlooked topics, balanced nutrition and pediatric cancer awareness. Our team actively distributed informative leaflets to educate the community on the importance of maintaining a balanced diet during childhood, emphasizing how proper nutrition directly supports physical growth, cognitive development, and long-term immunity.Alongside this, we also shed light on pediatric cancer its early warning signs, impacts on young lives and the importance of timely medical attention and awareness.",
+      description: "A child health initiative focused on balanced nutrition and pediatric cancer awareness. We distributed educational materials to help parents identify early warning signs and understand how proper nutrition supports long-term immunity.",
       images: [
         { type: "image", url: shahurda1 },
         { type: "image", url: shahurda2 },
@@ -163,21 +95,10 @@ export const April26Data: MonthlyProjectData = {
       ]
     },
     {
-      projectName: "FITCORE 3.3",
-      date: "April 2026",
-      location: "Online Awareness",
-      description: "As part of Fit Core 3.3, we successfully conducted an online awareness session highlighting the importance of sports and recreation in building a healthier and more balanced lifestyle. The session focused on the physical, mental, and social benefits of staying active, encouraging individuals to embrace fitness, discipline, teamwork, and wellbeing through sports.Together, we inspire healthier habits and stronger communities through the power of movement",
-      images: [
-        { type: "image", url: fit33_1 },
-        { type: "image", url: fit33_2 },
-        { type: "image", url: fit33_3 }
-      ]
-    },
-    {
       projectName: "H2O 1.1 — Clean Water for Life",
       date: "11th April 2026",
       location: "Oruwala Area",
-      description: "The H2O Project was successfully carried out on 11th April 2026 in the Oruwala Area with the aim of creating awareness on the importance of clean water and community well-being.This initiative focused on promoting the value of water as an essential resource while encouraging responsible usage and community support. Through this project, we were able to engage with the community and spread a message of sustainability, care, and social responsibility.We sincerely thank everyone who contributed and supported us in making this project a success. Together, we continue to create meaningful change, one drop at a time.",
+      description: "Focused on creating awareness about clean water as an essential resource. The initiative encouraged responsible usage and community support, spreading a message of sustainability and social responsibility in Oruwala.",
       images: [
         { type: "image", url: h2o11_1 },
         { type: "image", url: h2o11_2 },
@@ -185,10 +106,154 @@ export const April26Data: MonthlyProjectData = {
       ]
     },
     {
+      projectName: "Project H2O — Phase 2",
+      date: "15th April 2026",
+      location: "Rural Community School",
+      description: "Donated two large-capacity water storage tanks to a rural school to ensure a reliable supply of clean water. This phase aimed to support hygiene standards and create a safer, healthier environment for schoolchildren.",
+      images: [
+        { type: "image", url: h2oph2_1 },
+        { type: "image", url: h2oph2_2 },
+        { type: "video_link", url: h2oph2_3, videoUrl: "https://vt.tiktok.com/ZS9k3SaF3/" }
+      ]
+    },
+    {
+      projectName: "FITCORE 3.2",
+      date: "17th April 2026",
+      location: "Jayagath Sports Club",
+      description: "Donated essential sports items to strengthen grassroots sports and encourage young athletes. This initiative promotes active lifestyles and the spirit of teamwork within the community.",
+      images: [
+        { type: "image", url: fit32_1 },
+        { type: "image", url: fit32_2 },
+        { type: "video_link", url: fit32_3, videoUrl: "https://vt.tiktok.com/ZS9k7TcsG/" }
+      ]
+    },
+    {
+      projectName: "PANDORA 26 | Evening of Appreciations",
+      date: "19th April 2026",
+      location: "Lions Center, Kotte",
+      description: "An evening dedicated to recognizing the commitment of our club members. PANDORA 26 celebrated the outstanding contributions of our Leos who strengthen the spirit of service and leadership.",
+      images: [
+        { type: "image", url: pandora1 },
+        { type: "image", url: pandora2 },
+        { type: "image", url: pandora3 }
+      ]
+    },
+    {
+      projectName: "Project Eka Iththaka Mal – Phase 02",
+      date: "22nd April 2026",
+      location: "Pre-Vocational Skill Development Center, Kottawa",
+      description: "A vocational workshop for differently abled children teaching paper quilling for key tag preparation. This creative session improved handwork abilities and introduced the concept of self-income through handmade crafts.",
+      images: [
+        { type: "image", url: eka1 },
+        { type: "image", url: eka2 }
+      ]
+    },
+    {
+      projectName: "Terra Thrive 2.3",
+      date: "26th April 2026",
+      location: "LOLC Child Care Center, Madiwela",
+      description: "Transformed discarded oil barrels into durable, upcycled chairs. These were donated to the child care center to promote sustainability and teach the next generation the value of reimagining waste.",
+      images: [
+        { type: "image", url: terra1 },
+        { type: "image", url: terra2 },
+        { type: "video_link", url: terra3, videoUrl: "https://vt.tiktok.com/ZS9B6ng5R/" }
+      ]
+    },
+    {
+      projectName: "Project Colours of Hope – Phase 03",
+      date: "26th April 2026",
+      location: "Child Care Center, Madiwela",
+      description: "Successfully conducted with interactive sessions, fun games, and a small talent show for the children. This programme encouraged children to express their hidden talents in singing and dancing, building their confidence, happiness, creativity, and teamwork in a supportive environment.",
+      images: [
+        { type: "image", url: hope3_1 },
+        { type: "image", url: hope3_2 }
+      ]
+    },
+    {
+      projectName: "Project Drugs Kill – Phase 03",
+      date: "29th April 2026",
+      location: "Maharagama Central College",
+      description: "A drug prevention workshop for students to educate them on the harmful effects of drug use. The session guided young minds toward responsible choices and building a disciplined, drug-free lifestyle.",
+      images: [
+        { type: "image", url: drugsPh3_1 },
+        { type: "image", url: drugsPh3_2 }
+      ]
+    },
+    {
+      projectName: "Project Eka Iththaka Mal – Phase 03",
+      date: "29th April 2026",
+      location: "Camila School, Mattegoda",
+      description: "Donated evening tea, snacks, and sanitary products to residents. Beyond donations, Leos spent quality time sharing kindness and happiness with the residents, highlighting the value of social responsibility.",
+      images: [
+        { type: "image", url: ekaPh3_1 },
+        { type: "image", url: ekaPh3_2 }
+      ]
+    },
+    {
+      projectName: "Project H2O – Phase 03",
+      date: "April 2026",
+      location: "Online Awareness",
+      description: "A digital campaign educating the community on clean water and renewable energy. Through creative posters, we shared messages on preventing wastage, reducing pollution, and the value of solar power.",
+      images: [
+        { type: "image", url: h2oPh3 }
+      ]
+    },
+    {
+      projectName: "Project Uththamachara 1.3",
+      date: "April 2026",
+      location: "Online Awareness",
+      description: "A social media campaign advocating for elder care. We shared messages about respecting elders, ensuring their emotional well-being, and treating senior citizens with dignity and kindness.",
+      images: [
+        { type: "image", url: uththama13_1 },
+        { type: "image", url: uththama13_2 }
+      ]
+    },
+    {
+      projectName: "Project Waves of Support 1.3",
+      date: "April 2026",
+      location: "Online Awareness",
+      description: "A digital awareness campaign for disaster preparedness. Posters shared messages on first aid, search and rescue, and fire safety to encourage responsible action during emergencies.",
+      images: [
+        { type: "image", url: wavesSupport1 },
+        { type: "image", url: wavesSupport2 }
+      ]
+    },
+    {
+      projectName: "Project Roar Scape 1.3",
+      date: "April 2026",
+      location: "Fellowship Activity",
+      description: "A fellowship event where members gathered to watch a film together. This activity strengthened friendships, teamwork, and unity within the club outside regular service tasks.",
+      images: [
+        { type: "image", url: roarScape1 },
+        { type: "image", url: roarScape2 }
+      ]
+    },
+    {
+      projectName: "Project Colours of Hope – Phase 2",
+      date: "April 2026",
+      location: "Online Exhibition",
+      description: "An online art exhibition for children at the Madiwela Child Care Center. This platform allowed them to showcase their creativity and artistic talents, bringing joy and confidence to the participants.",
+      images: [
+        { type: "image", url: hope1 },
+        { type: "image", url: hope2 }
+      ]
+    },
+    {
+      projectName: "FITCORE 3.3",
+      date: "April 2026",
+      location: "Online Awareness",
+      description: "Highlighted the social and physical benefits of sports through digital awareness, encouraging individuals to embrace fitness and discipline.",
+      images: [
+        { type: "image", url: fit33_1 },
+        { type: "image", url: fit33_2 },
+        { type: "image", url: fit33_3 }
+      ]
+    },
+    {
       projectName: "Wave of Whispers — Phase 3",
       date: "April 2026",
       location: "Online Awareness",
-      description: "As part of our commitment to environmental sustainability and animal welfare, we successfully conducted an online PR awareness campaign focusing on the protection of street animals, wildlife conservation, and marine life preservation. Through this initiative, we aimed to educate and inspire the community to understand the importance of compassion towards stray animals, protecting biodiversity, and safeguarding our oceans for future generations.This awareness campaign served as a reminder that every small action can create a lasting impact in building a safer and healthier world for all living beings.",
+      description: "An online PR campaign focusing on the protection of street animals and marine life preservation, advocating for compassion towards all living beings.",
       images: [
         { type: "image", url: waveWhisp1 },
         { type: "image", url: waveWhisp2 },
@@ -199,7 +264,7 @@ export const April26Data: MonthlyProjectData = {
       projectName: "Leo Lumina 1.1",
       date: "April 2026",
       location: "Research Initiative",
-      description: "As part of the Leo Lumina 1.1 research initiative, we conducted an in depth study to understand key social and health-related concerns within the community. Following the analysis of the research findings, we successfully carried out an online PR awareness campaign focusing on STDs and HIV awareness.This initiative aimed to educate the public on prevention, early identification, responsible behavior, and the importance of breaking stigma surrounding these health conditions. Through awareness and knowledge sharing, we encourage individuals to make informed decisions and promote a healthier, more conscious society.Together, we strive to spread knowledge that protects lives and builds a more informed future.",
+      description: "A research-driven campaign focusing on health awareness and breaking stigma to promote a more conscious and informed society.",
       images: [
         { type: "image", url: lumina1 },
         { type: "image", url: lumina2 },

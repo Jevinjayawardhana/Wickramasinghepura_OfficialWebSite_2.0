@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Banknote, Landmark, CreditCard, Heart, Sparkles, HandHeart } from "lucide-react";
+import { ArrowLeft, Banknote, Landmark, Sparkles, HandHeart, ShieldCheck, ExternalLink } from "lucide-react";
 import SiteLayout from "@/components/layout/SiteLayout";
 import Reveal from "@/components/Reveal";
 import clubLogo from "@/assets/site/club-logo.png";
@@ -19,7 +19,7 @@ const Donate = () => {
 
         <div className="container-editorial relative z-20 py-20">
           <Reveal>
-              <Link to="/" className="group inline-flex items-center gap-2 text-accent mb-8 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-[10px] font-black">
+            <Link to="/" className="group inline-flex items-center gap-2 text-accent mb-8 uppercase tracking-[0.15em] sm:tracking-[0.3em] text-[10px] font-black">
               <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" /> Back to Home
             </Link>
             <span className="eyebrow !text-accent before:!bg-accent">Support Our Journey</span>
@@ -40,6 +40,28 @@ const Donate = () => {
                 Every contribution directly supports impactful community service projects, youth leadership 
                 development, and meaningful initiatives that uplift lives and strengthen communities.
               </p>
+              
+              {/* Financial Transparency Section */}
+              <div className="mt-10 p-6 bg-card border border-foreground/5 rounded-sm">
+                <div className="flex items-start gap-4">
+                  <ShieldCheck className="text-primary shrink-0 mt-1" size={28} />
+                  <div>
+                    <h3 className="font-serif text-xl mb-3">Your Trust is Our Priority</h3>
+                    <p className="text-sm text-foreground/70 leading-relaxed mb-4">
+                      We understand that transparency is key to meaningful partnership. Our sponsors and donors can rest assured that every cent is accounted for. To maintain the highest standards of accountability, we publish an <strong>Annual Audited Treasurer Report</strong> that details all financial activities of the club.
+                    </p>
+                    <a 
+                      href="https://drive.google.com/drive/folders/1WA9t7v9KPnmxJdmpu9slmtPSt4r6Bd8h" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-primary hover:opacity-70 transition-opacity"
+                    >
+                      View Financial Reports <ExternalLink size={12} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               <div className="grid sm:grid-cols-2 gap-6 mt-12">
                 <div className="p-5 sm:p-6 bg-secondary text-secondary-foreground shadow-editorial border-l-4 border-accent">
                   <Sparkles className="text-accent mb-4" />
