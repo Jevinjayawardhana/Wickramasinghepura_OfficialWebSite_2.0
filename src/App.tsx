@@ -8,18 +8,18 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import ScrollToTop from "./components/ScrollTop";
 
 // Page Imports
-import Index from "./pages/Index.tsx";
-import About from "./pages/About.tsx";
-import Projects from "./pages/Projects.tsx";
-import MonthlyDetail from "./pages/MonthlyDetail.tsx";
-import Committee from "./pages/Committee.tsx";
-import Gallery from "./pages/Gallery.tsx";
-import Updates from "./pages/Updates.tsx";
-import Contact from "./pages/Contact.tsx";
-import Donate from "./pages/Donate.tsx";
-import Join from "./pages/Join.tsx";
-import FAQ from "./pages/FAQ.tsx"; // New FAQ page
-import NotFound from "./pages/NotFound.tsx";
+import Index from "@/pages/Index";
+import About from "@/pages/About";
+import Projects from "@/pages/Projects";
+import MonthlyDetail from "@/pages/MonthlyDetail";
+import Committee from "@/pages/Committee";
+import Gallery from "@/pages/Gallery";
+import Updates from "@/pages/Updates";
+import Contact from "@/pages/Contact";
+import Donate from "@/pages/Donate";
+import Join from "@/pages/Join";
+import FAQ from "@/pages/FAQ";
+import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
 

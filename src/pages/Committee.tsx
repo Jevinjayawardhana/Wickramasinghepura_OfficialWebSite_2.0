@@ -1,37 +1,55 @@
 import SiteLayout from "@/components/layout/SiteLayout";
 import PlaceholderImage from "@/components/PlaceholderImage";
 
-import imgDulanja from "@/assets/team/dulanja.jpg";
-import imgDilshan from "@/assets/team/dilshan.jpg";
-import imgJevin from "@/assets/team/jevin.jpg";
-import imgMenusha from "@/assets/team/menusha.jpg";
-import imgHimanya from "@/assets/team/himanya.jpg";
-import imgAyodhya from "@/assets/team/ayodhya.jpg";
-import imgDulsari from "@/assets/team/dulsari.jpg";
-import imgKavindu from "@/assets/team/kavindu.jpg";
-import imgNilshan from "@/assets/team/nilshan.jpg";
-import imgThevindu from "@/assets/team/thevindu.jpg";
+import imgDulanja from "@/assets/team/Dulanjana.jpeg";
+import imgSaduni from "@/assets/team/Saduni.jpeg";
+import imgHimanya from "@/assets/team/Himanya.jpeg";
+import imgKumodi from "@/assets/team/Kumodi.jpeg";
+import imgHashini from "@/assets/team/Hashini.jpeg";
+import imgKavindu from "@/assets/team/kavindu.jpeg";
+import imgThevindu from "@/assets/team/Thevindu.jpeg";
+import imgPuleen from "@/assets/team/Puleen.jpeg";
+import imgMethumya from "@/assets/team/Methumya.jpeg";
+import imgPraveen from "@/assets/team/Praveen.jpeg";
+import imgJevin from "@/assets/team/Jevin.jpeg";
+import imgSandinu from "@/assets/team/Sandininu.jpeg";
+import imgDulshari from "@/assets/team/dulsari.jpg";
+import imgShalinda from "@/assets/team/Shalinda.jpeg";
+import imgManjula from "@/assets/team/manjula.jpg";
 
 type Member = { name: string; role: string; img?: string };
 
+const Advisory: Member[] = [
+  { name: "Lion Manjula Wijesundera ", role: "Club Advisor", img: imgManjula },
+
+];
+
 const presidency: Member[] = [
-  { name: "Leo Dulanja Sathushka", role: "Club President", img: imgDulanja },
-  { name: "Leo Dilshan Wijesurendra", role: "Immediate Past Club President", img: imgDilshan },
-  { name: "Leo Jevin Jayawardhana", role: "1st Vice President", img: imgJevin },
-  { name: "Leo Menusha Perera", role: "2nd Vice President", img: imgMenusha },
+  { name: "Leo Himanya Welagedara ", role: "Club President", img: imgHimanya },
+  { name: "Leo Dulanja Sathushka", role: "Immediate Past Club President", img: imgDulanja },
+  { name: "Leo Kavindu Indramala", role: "1st Vice President", img: imgKavindu },
+  { name: "Leo Saduni Gamage", role: "2nd Vice President", img: imgSaduni },
 ];
 
 const secretaries: Member[] = [
-  { name: "Leo Himanya Welagedara", role: "Club Secretary", img: imgHimanya },
-  { name: "Leo Ayodhya Ranaweera", role: "Assistant Secretary", img: imgAyodhya },
-  { name: "Leo Dulsari Viranja", role: "Assistant Secretary", img: imgDulsari },
+  { name: "Leo Thevindu Gunathilake", role: "Club Secretary", img: imgThevindu },
+  { name: "Leo Kumodi Kavihari", role: "Assistant Secretary", img: imgKumodi },
+  { name: "Leo Puleen Kumara", role: "Assistant Secretary", img: imgPuleen },
 ];
 
 const treasurers: Member[] = [
-  { name: "Leo Kavindu Indramala", role: "Club Treasurer", img: imgKavindu },
-  { name: "Leo Nilshan Perera", role: "Assistant Treasurer", img: imgNilshan },
-  { name: "Leo Thevindu Gunathilake", role: "Assistant Treasurer", img: imgThevindu },
+  { name: "Leo Hashini Herath", role: "Club Treasurer", img: imgHashini },
+  { name: "Leo Methumya Peiris", role: "Assistant Treasurer", img: imgMethumya },
 ];
+
+const bod: Member[] = [
+  { name: "Leo Praveen Kavinda", role: "Board of Directors", img: imgPraveen },
+  { name: "Leo Jevin Jayawardhana", role: "Board of Directors", img: imgJevin },
+  { name: "Leo Sandinu Laksith ", role: "Board of Directors", img: imgSandinu },
+  { name: "Leo Dulshari Viranja", role: "Board of Directors", img: imgDulshari },
+  { name: "Leo Shalinda Heshan", role: "Board of Directors", img: imgShalinda },
+];
+
 
 const MemberCard = ({ m }: { m: Member }) => (
   <div className="group">
@@ -79,9 +97,11 @@ const Committee = () => (
     </section>
 
     <section className="container-editorial py-16 md:py-24">
+      <Section title="Club Advisor" members={Advisory} />
       <Section title="Presidency" members={presidency} />
       <Section title="Club Secretaries" members={secretaries} />
       <Section title="Club Treasurers" members={treasurers} />
+      <Section title="Board Of Directors" members={bod} />
     </section>
   </SiteLayout>
 );

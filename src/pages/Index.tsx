@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { 
-  ArrowRight, 
-  ArrowUpRight, 
-  HandHeart, 
-  Trophy, 
-  Heart, 
+import {
+  ArrowRight,
+  ArrowUpRight,
+  HandHeart,
+  Trophy,
+  Heart,
   Banknote,
 } from "lucide-react";
 import SiteLayout from "@/components/layout/SiteLayout";
@@ -18,10 +18,11 @@ import { cn } from "@/lib/utils";
 // Assets
 import heroCover from "@/assets/site/cover.jpg";
 import clubLogo from "@/assets/site/club-logo.png";
-import imgDulanja from "@/assets/team/dulanja.jpg";
-import imgHimanya from "@/assets/team/himanya.jpg";
-import imgKavindu from "@/assets/team/kavindu.jpg";
-import imgJevin from "@/assets/team/jevin.jpg";
+import imgDulanja from "@/assets/team/Dulanjana.jpeg";
+import imgHimanya from "@/assets/team/Himanya.jpeg";
+import imgKavindu from "@/assets/team/kavindu.jpeg";
+import imgThevindu from "@/assets/team/Thevindu.jpeg";
+import imgHashini from "@/assets/team/Hashini.jpeg";
 
 const slides = [
   {
@@ -55,10 +56,11 @@ const leoLetters = [
 ];
 
 const board = [
-  { name: "Leo Dulanja Sathushka", role: "Club President", img: imgDulanja },
-  { name: "Leo Jevin Jayawardhana", role: "1st Vice President", img: imgJevin },
-  { name: "Leo Himanya Welagedara", role: "Club Secretary", img: imgHimanya },
-  { name: "Leo Kavindu Indramala", role: "Club Treasurer", img: imgKavindu },
+  { name: "Leo Himanya Welagedara ", role: "Club President", img: imgHimanya },
+  { name: "Leo Dulanja Sathushka", role: "Immediate Past Club President", img: imgDulanja },
+  { name: "Leo Kavindu Indramala", role: "1st Vice President", img: imgKavindu },
+  { name: "Leo Thevindu Gunathilake", role: "Club Secretary", img: imgThevindu },
+  { name: "Leo Hashini Herath", role: "Club Treasurer", img: imgHashini },
 ];
 
 const Hero = () => {
@@ -73,15 +75,15 @@ const Hero = () => {
     <section className="relative h-[100svh] min-h-[560px] overflow-hidden bg-secondary text-secondary-foreground">
       <PlaceholderImage label="Wickipura Leos" variant="secondary" aspect="absolute inset-0" src={heroCover} />
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/95 via-secondary/80 to-secondary/95" />
-      
+
       {/* FLOATING LOGO (Right Side) */}
       <div className="absolute inset-y-0 right-0 w-1/2 lg:w-[55%] hidden md:flex items-center justify-end pr-6 lg:pr-16 pointer-events-none">
         <div className="relative animate-float">
-          <img 
-            src={clubLogo} 
-            alt="" 
-            className="select-none opacity-20 mix-blend-screen drop-shadow-[0_0_40px_hsl(var(--accent)/0.35)]" 
-            style={{ width: "clamp(280px, 38vw, 560px)", height: "auto" }} 
+          <img
+            src={clubLogo}
+            alt=""
+            className="select-none opacity-20 mix-blend-screen drop-shadow-[0_0_40px_hsl(var(--accent)/0.35)]"
+            style={{ width: "clamp(280px, 38vw, 560px)", height: "auto" }}
           />
         </div>
       </div>
@@ -188,26 +190,26 @@ const Index = () => (
 
     {/* BOARD PREVIEW */}
     <section className="container-editorial py-20 md:py-32">
-       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div>
-            <span className="eyebrow">The Board</span>
-            <h2 className="font-serif text-3xl md:text-6xl mt-4">Executive <span className="text-primary italic">Leadership</span></h2>
-          </div>
-          <Link to="/committee" className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs hover:gap-4 transition-all underline underline-offset-8">Full Committee <ArrowRight className="size-4" /></Link>
-       </div>
-       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
-          {board.map((member, i) => (
-            <Reveal key={i} animation="fade-in" delay={i * 100}>
-               <div className="group text-center">
-                  <div className="aspect-[3/4] mb-4 md:mb-6 overflow-hidden bg-secondary shadow-lg grayscale hover:grayscale-0 transition-all duration-500 border border-foreground/5">
-                     <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  </div>
-                  <h4 className="font-serif text-sm md:text-xl leading-tight">{member.name}</h4>
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-primary font-bold mt-1">{member.role}</p>
-               </div>
-            </Reveal>
-          ))}
-       </div>
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <span className="eyebrow">The Board</span>
+          <h2 className="font-serif text-3xl md:text-6xl mt-4">Executive <span className="text-primary italic">Leadership</span></h2>
+        </div>
+        <Link to="/committee" className="inline-flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-xs hover:gap-4 transition-all underline underline-offset-8">Full Committee <ArrowRight className="size-4" /></Link>
+      </div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
+        {board.map((member, i) => (
+          <Reveal key={i} animation="fade-in" delay={i * 100}>
+            <div className="group text-center">
+              <div className="aspect-[3/4] mb-4 md:mb-6 overflow-hidden bg-secondary shadow-lg grayscale hover:grayscale-0 transition-all duration-500 border border-foreground/5">
+                <img src={member.img} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+              </div>
+              <h4 className="font-serif text-sm md:text-xl leading-tight">{member.name}</h4>
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-primary font-bold mt-1">{member.role}</p>
+            </div>
+          </Reveal>
+        ))}
+      </div>
     </section>
 
     {/* STATS SECTION */}
